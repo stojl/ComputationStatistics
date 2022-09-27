@@ -1,0 +1,8 @@
+Rcpp::sourceCpp("./Iteration3/ruin_prob_3.cpp")
+
+ruin_prob_3 <- function(n, m) {
+  
+  samples <- runif(n * m, min = -1.9, 2)
+  
+  ruin_prob_cpp_openMP(samples, n, m) / m
+}
