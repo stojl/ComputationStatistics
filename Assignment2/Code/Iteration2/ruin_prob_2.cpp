@@ -23,3 +23,26 @@ int ruin_prob_cpp(NumericVector x, int n, int m) {
   
   return count;
 }
+
+// [[Rcpp::export]]
+LogicalVector ruin_vector(NumericVector x, int n, int m) {
+  LogicalVector result(m);
+  
+  for(int j = 0; j < m; ++j) {
+    
+    double sum = 0;
+    
+    for(int i = 0; i < n; ++i) {
+      
+      sum += x[n * j + i];
+      
+      if(30 + sum <= 0) {
+        result[j] = true;
+        break;
+      }
+      
+    }
+  }
+  
+  return result;
+}
