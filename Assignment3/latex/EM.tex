@@ -13,7 +13,41 @@ The non-standard t-distribution has density
     \label{eq:marginal}
     g(x\mid\mu,\sigma^2,\nu)=\frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\sqrt{\pi\nu\sigma^2}\Gamma\left(\frac{\nu}{2}\right)}\left(1+\frac{(x - \mu)^2}{\nu\sigma^2}\right)^{-\frac{\nu + 1}{2}}.
 \end{equation}
-Maximum likelihood estimates have no closed analytic solutions.
+Maximum likelihood estimates have no closed analytic solutions. It has negative log-likelihood
+\begin{align*}
+    &-\log \Gamma\left(\frac{\nu + 1}{2}\right) +
+    \log\Gamma(\nu / 2) +
+    \frac{1}{2}\log\nu +
+    \frac{1}{2}\log\sigma^2\\ &+
+    \frac{\nu + 1}{2}\log\left(1 + \frac{(x - \mu)^2}{\nu\sigma^2}\right).
+\end{align*}
+For $n$ observations the negative mean log-likelihood is
+\begin{align*}
+    &-\log \Gamma\left(\frac{\nu + 1}{2}\right) +
+    \log\Gamma(\nu / 2) +
+    \frac{1}{2}\log\nu +
+    \frac{1}{2}\log\sigma^2\\ &+
+    \frac{\nu + 1}{2n}\sum_{i=1}^{n}\log\left(1 + \frac{(x_{i} - \mu)^2}{\nu\sigma^2}\right).
+\end{align*}
+We have the gradients
+\begin{align*}
+    &\nabla_{\mu}\ell = -\frac{\nu + 1}{n\nu\sigma^2}\sum_{i=1}^{n}\frac{x_{i} - \mu}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}} \\
+    &\nabla_{\sigma^2}\ell = \frac{1}{2\sigma^2} -
+    \frac{\nu + 1}{2n\nu(\sigma^2)^2}\sum_{i=1}^{n}\frac{(x_{i}-\mu)^2}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}    
+\end{align*}
+\begin{align*}
+    \nabla_{\nu}\ell = &-\frac{1}{2}\psi\left(\frac{\nu + 1}{2}\right) +
+    \frac{1}{2}\psi(\nu / 2) +
+    \frac{1}{2\nu} \\ &+
+    \frac{1}{2n}\sum_{i=1}^{n}\log\left(1 + \frac{(x_{i} - \mu)^2}{\nu\sigma^2}\right) \\ &-
+    \frac{\nu + 1}{2n\nu^2\sigma^2}\sum_{i=1}^{n}\frac{(x_{i}-\mu)^2}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}
+\end{align*}
+We have the Hessian for $(\mu,\sigma^2)$
+\begin{align*}
+    &\nabla^{2}_{\mu}\ell = -\frac{\nu + 1}{2n\nu\sigma^2}\sum_{i=1}^{n}\frac{1}{1+\frac{(x_{i}-\mu)^2}{\nu\sigma^2}}+\frac{\nu + 1}{n(\nu\sigma^2)^2}\sum_{i=1}^{n}\left(\frac{x_{i}-\mu}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}\right)^2\\
+    &\nabla_{\sigma^2}^{2}\ell = -\frac{1}{2(\sigma^2)^2}+\frac{\nu + 1}{n\nu(\sigma^2)^3}\sum_{i=1}^{n}\frac{(x_{i}-\mu)^2}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}-\frac{\nu + 1}{2n\nu^2(\sigma^2)^4}\sum_{i=1}^{n}\left(\frac{(x_{i}-\mu)^2}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}\right)^2\\
+    &\nabla_{\mu}\nabla_{\sigma^2}\ell = \frac{\nu + 1}{n\nu(\sigma^2)^2}\sum_{i=1}^{n}\frac{x_{i} - \mu}{1 + \frac{(x_{i} - \mu)^2}{\nu\sigma^2}}-\frac{\nu + 1}{n\nu(\sigma^2)^4}\sum_{i=1}^{n}\left(\frac{x_{i}-\mu}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}\right)^{2}(x_{i}-\mu)
+\end{align*}
 \section{Expectation Maximization}
 Consider $(X, W)$ with joint density
 \begin{equation}
@@ -45,24 +79,24 @@ It can easily be shown that the marginal distribution of $X$ has a non-standard 
 \subsection{Expectation step}
 Define $H$ as the negative log-likelihood of the joint density:
 \begin{align*}
-    H(\theta)=&-\frac{1}{2}\log \pi
-        -\frac{1}{2}\log\nu
-        -\frac{1}{2}\log\sigma^2
-        -\frac{\nu + 1}{2}\log 2
-        -\log\Gamma(\nu / 2)\\
-        &+\frac{\nu - 1}{2}\log w 
-        -\frac{w}{2}- \frac{w}{2}\frac{(x - \mu)^2}{\nu\sigma^2}
+    H(\theta)=&\frac{1}{2}\log \pi
+        +\frac{1}{2}\log\nu
+        +\frac{1}{2}\log\sigma^2
+        +\frac{\nu + 1}{2}\log 2
+        +\log\Gamma(\nu / 2)\\
+        &-\frac{\nu - 1}{2}\log w 
+        +\frac{w}{2}- \frac{w}{2}\frac{(x - \mu)^2}{\nu\sigma^2}
 \end{align*}
-where $\theta = (\mu, \sigma^2, \nu)$. Define $Q(\theta \mid \theta')=E(H(X, W) | X)$ we have
+where $\theta = (\mu, \sigma^2, \nu)$. Define $Q(\theta \mid \theta')=E_{\theta'}(H(X, W) | X)$ we have
 \begin{align*}
-    Q(\theta \mid \theta')=&-\frac{1}{2}\log \pi
-    -\frac{1}{2}\log\nu
-    -\frac{1}{2}\log\sigma^2
-    -\frac{\nu + 1}{2}\log 2
-    -\log\Gamma(\nu / 2)\\
-    &+\frac{\nu - 1}{2}C_{1}(\theta', X)\\
-    &-\frac{C_{2}(\theta', X)}{2}
-    -C_{2}(\theta', X)\frac{(X - \mu)^2}{2\nu\sigma^2}
+    Q(\theta \mid \theta')=&\frac{1}{2}\log \pi
+    +\frac{1}{2}\log\nu
+    +\frac{1}{2}\log\sigma^2
+    +\frac{\nu + 1}{2}\log 2
+    +\log\Gamma(\nu / 2)\\
+    &-\frac{\nu - 1}{2}C_{1}(\theta', X)\\
+    &+\frac{C_{2}(\theta', X)}{2}
+    +C_{2}(\theta', X)\frac{(X - \mu)^2}{2\nu\sigma^2}
 \end{align*}
 where
 \begin{align*}
@@ -70,5 +104,40 @@ where
     C_{2}(\theta, x) = \frac{\nu + 1}{1+\frac{(x -\mu)^2}{\nu\sigma^2}}.
 \end{align*}
 \subsection{Maximization (minimization) step}
+For $n$ observations $(X_{i})$ we seek to minimize
+\begin{align*}
+    Q(\theta\mid\theta')&=\frac{1}{n}\sum_{i=1}^{n}Q_{i}(\theta\mid\theta')
+\end{align*}
+in $\theta$. Getting rid of the terms that do not contain $\theta$
+\begin{align*}
+    Q(\theta\mid\theta')\simeq
+        &\log\nu
+        + \log\sigma^2
+        + \nu\log 2
+        + 2\log\Gamma(\nu / 2)\\
+        &- \frac{\nu}{n}\sum_{i=1}^{n}C_{1}(\theta', X_{i})+\frac{1}{n\nu\sigma^2}\sum_{i=1}^{n}C_{2}(\theta', X_{i})(X_{i}-\mu)^2.
+\end{align*}
+The gradient is
+\begin{align*}
+    &\partial_{\mu}Q(\theta\mid\theta') = -\frac{2}{n\nu\sigma^2}\sum_{i=1}^{n}C_{2}(\theta', X_{i})(X_{i}-\mu)\\
+    &\partial_{\sigma^2}Q(\theta\mid\theta') = \frac{1}{\sigma^2}-\frac{1}{n\nu(\sigma^2)^{2}}\sum_{i=1}^{n}C_{2}(\theta', X_{i})(X_{i}-\mu)^2\\
+    &\partial_{\nu}Q(\theta\mid\theta') = \frac{1}{\nu}
+        +\log 2 
+        +\psi(\nu / 2)
+        -\frac{1}{n}\sum_{i=1}^{n}C_{1}(\theta', X_{i})
+        -\frac{1}{n\nu^2\sigma^2}\sum_{i=1}^{n}C_{2}(\theta', X_{i})(X_{i}-\mu)^2.
+\end{align*}
+\subsubsection*{Fixed $\nu$}
+For fixed $\nu$ the minimization problem is equivalent to minimizing weighted least squares. Hence the minimizers are
+\begin{equation}
+    \hat\mu (\theta') :=\frac{\sum_{i=1}^{n}C_{2}(\theta', X_{i})X_{i}}{\sum_{i=1}^{n}C_{2}(\theta', X_{i})}, \quad\quad 
+    \hat\sigma_{\nu}^2(\theta'):=\frac{1}{n\nu}\sum_{i=1}^{n}C_{2}(\theta', X_{i})(X_{i} - \hat\mu(\theta))^2.
+\end{equation}
+Therefore the EM-algorithm is described as the updating scheme
+\begin{equation}
+    \theta_{n + 1} = (\hat\mu(\theta_{n}), \hat\sigma_{\nu}^2(\theta_{n})).
+\end{equation}
+\subsubsection*{Estimating $\nu$}
+When $\nu$ is no longer fixed then there no longer exists nice closed form solutions. However, if any global minimizer exists then $\hat\mu(\theta')$ must be part of the solution.
 
 \end{document}

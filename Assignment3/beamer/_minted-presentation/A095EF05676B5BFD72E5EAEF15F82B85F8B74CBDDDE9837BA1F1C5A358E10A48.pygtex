@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{simulate\PYGZus{}X} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{mu}\PYG{p}{,} \PYG{n}{sigma}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{W} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{rchisq}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)}
+    \PYG{n}{X} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{rnorm}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{mu}\PYG{p}{,} \PYG{n+nf}{sqrt}\PYG{p}{(}\PYG{n}{nu} \PYG{o}{*} \PYG{n}{sigma} \PYG{o}{/} \PYG{n}{W}\PYG{p}{))}
+
+    \PYG{n+nf}{list}\PYG{p}{(}\PYG{n}{x} \PYG{o}{=} \PYG{n}{X}\PYG{p}{,} \PYG{n}{w} \PYG{o}{=} \PYG{n}{W}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{full\PYGZus{}mle} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{W}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{mu} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{n}{X} \PYG{o}{*} \PYG{n}{W}\PYG{p}{)} \PYG{o}{/} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{n}{W}\PYG{p}{)}
+    \PYG{n}{sigma} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{n}{W} \PYG{o}{*} \PYG{p}{(}\PYG{n}{X} \PYG{o}{\PYGZhy{}} \PYG{n}{mu}\PYG{p}{)}\PYG{o}{\PYGZca{}}\PYG{l+m}{2}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{n}{nu} \PYG{o}{*} \PYG{p}{(}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)))}
+    \PYG{n+nf}{list}\PYG{p}{(}\PYG{n}{mu} \PYG{o}{=} \PYG{n}{mu}\PYG{p}{,} \PYG{n}{sigma} \PYG{o}{=} \PYG{n}{sigma}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nf}{set.seed}\PYG{p}{(}\PYG{l+m}{3939392}\PYG{p}{)}
+\PYG{n}{samples} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{simulate\PYGZus{}X}\PYG{p}{(}\PYG{l+m}{100000}\PYG{p}{,} \PYG{l+m}{5}\PYG{p}{,} \PYG{l+m}{1.5}\PYG{p}{,} \PYG{l+m}{3}\PYG{p}{)}
+\PYG{n+nf}{full\PYGZus{}mle}\PYG{p}{(}\PYG{n}{samples}\PYG{o}{\PYGZdl{}}\PYG{n}{x}\PYG{p}{,} \PYG{n}{samples}\PYG{o}{\PYGZdl{}}\PYG{n}{w}\PYG{p}{,} \PYG{l+m}{3}\PYG{p}{)}
+\end{Verbatim}

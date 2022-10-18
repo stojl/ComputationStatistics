@@ -1,0 +1,8 @@
+\frametitle{Robustness of the intial parameters}
+    \framesubtitle{Gaussian resemblence of the t-distribution for large $\nu$}
+    When $\nu\longrightarrow\infty$ the density of the t-distribution approaches the density of a normal distribution with mean $\mu$ and variance $\sigma^{2}$. It does so very quickly!
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.35]{pictures/densities.png}
+        \caption{$\mu = 45$, $\sigma^{2}= 3$.}
+    \end{figure}
