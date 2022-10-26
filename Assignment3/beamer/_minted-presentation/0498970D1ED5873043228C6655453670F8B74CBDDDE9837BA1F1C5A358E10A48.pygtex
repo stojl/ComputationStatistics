@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{EM} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par} \PYG{o}{=} \PYG{k+kc}{NULL}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{,} \PYG{n}{maxit} \PYG{o}{=} \PYG{l+m}{500}\PYG{p}{,} \PYG{n}{min.eps} \PYG{o}{=} \PYG{l+m}{1e\PYGZhy{}7}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{E} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{E\PYGZus{}step}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)}
+    \PYG{n}{M} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{M\PYGZus{}step}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{n+nf}{is.null}\PYG{p}{(}\PYG{n}{par}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+        \PYG{n}{par} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{c}\PYG{p}{(}\PYG{n+nf}{median}\PYG{p}{(}\PYG{n}{x}\PYG{p}{),} \PYG{n+nf}{IQR}\PYG{p}{(}\PYG{n}{x}\PYG{p}{))}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{.}
+    \PYG{n}{.}
+    \PYG{n}{.}
+\end{Verbatim}

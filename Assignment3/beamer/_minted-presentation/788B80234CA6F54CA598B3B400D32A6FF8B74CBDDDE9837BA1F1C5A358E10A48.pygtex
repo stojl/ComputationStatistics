@@ -1,7 +1,7 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{n}{E\PYGZus{}step} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-    \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
-    \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{nu}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{}force(x)}
+    \PYG{c+c1}{\PYGZsh{}force(nu)}
     \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par}\PYG{p}{)} \PYG{p}{\PYGZob{}}
         \PYG{c+c1}{\PYGZsh{} mu = par[1]}
         \PYG{c+c1}{\PYGZsh{} sigma\PYGZca{}2 = par[2]}
@@ -10,8 +10,8 @@
 \PYG{p}{\PYGZcb{}}
 
 \PYG{n}{M\PYGZus{}step} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-  \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
-  \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{nu}\PYG{p}{)}
+  \PYG{c+c1}{\PYGZsh{}force(x)}
+  \PYG{c+c1}{\PYGZsh{}force(nu)}
   \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{EW}\PYG{p}{)} \PYG{p}{\PYGZob{}}
     \PYG{n}{mu} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{n}{EW} \PYG{o}{*} \PYG{n}{x}\PYG{p}{)} \PYG{o}{/} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{n}{EW}\PYG{p}{)}
     \PYG{n}{sigma} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{mean}\PYG{p}{(}\PYG{n}{EW} \PYG{o}{*} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{mu}\PYG{p}{)}\PYG{o}{\PYGZca{}}\PYG{l+m}{2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{nu}

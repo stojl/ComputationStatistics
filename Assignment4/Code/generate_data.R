@@ -18,5 +18,3 @@ generate_y <- function(x, sigma, alpha = 0, beta = 1, gamma = 1, rho = 1) {
   regfunc(x) + rnorm(length(x), mean = 0, sd = sigma)
 }
 
-X <- generate_x(1000, 2)
-Y <- generate_y(X, 1.5, alpha = 1, beta = 3, gamma = 5, rho = 0.2)

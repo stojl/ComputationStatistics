@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{GD} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par}\PYG{p}{,} \PYG{n}{H}\PYG{p}{,} \PYG{n}{gr}\PYG{p}{,} \PYG{n}{d} \PYG{o}{=} \PYG{l+m}{0.8}\PYG{p}{,} \PYG{n}{c} \PYG{o}{=} \PYG{l+m}{0.1}\PYG{p}{,} \PYG{n}{gamma0} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{,} \PYG{n}{epsilon} \PYG{o}{=} \PYG{l+m}{1e\PYGZhy{}7}\PYG{p}{,} \PYG{n}{maxiter} \PYG{o}{=} \PYG{l+m}{500}\PYG{p}{,} \PYG{n}{cb} \PYG{o}{=} \PYG{k+kc}{NULL}
+\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n+nf}{for}\PYG{p}{(}\PYG{n}{i} \PYG{n}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{n}{maxiter}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{value} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{H}\PYG{p}{(}\PYG{n}{par}\PYG{p}{)}
+    \PYG{n}{grad} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{gr}\PYG{p}{(}\PYG{n}{par}\PYG{p}{)}
+    \PYG{n}{h\PYGZus{}prime} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{n}{grad}\PYG{o}{\PYGZca{}}\PYG{l+m}{2}\PYG{p}{)}
+    \PYG{n}{gamma} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{gamma0}
+    \PYG{n}{par1} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par} \PYG{o}{\PYGZhy{}} \PYG{n}{gamma} \PYG{o}{*} \PYG{n}{grad}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n+nf}{is.null}\PYG{p}{(}\PYG{n}{cb}\PYG{p}{))} \PYG{n+nf}{cb}\PYG{p}{()}
+    \PYG{n+nf}{while}\PYG{p}{(}\PYG{n+nf}{min}\PYG{p}{(}\PYG{n+nf}{H}\PYG{p}{(}\PYG{n}{par1}\PYG{p}{),} \PYG{k+kc}{Inf}\PYG{p}{,} \PYG{n}{na.rm} \PYG{o}{=} \PYG{k+kc}{TRUE}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{value} \PYG{o}{\PYGZhy{}} \PYG{n}{c} \PYG{o}{*} \PYG{n}{gamma} \PYG{o}{*} \PYG{n}{h\PYGZus{}prime}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{gamma} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{d} \PYG{o}{*} \PYG{n}{gamma}
+        \PYG{n}{par1} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par} \PYG{o}{\PYGZhy{}} \PYG{n}{gamma} \PYG{o}{*} \PYG{n}{grad}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{n+nf}{norm}\PYG{p}{(}\PYG{n}{par} \PYG{o}{\PYGZhy{}} \PYG{n}{par1}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n}{epsilon} \PYG{o}{*} \PYG{p}{(}\PYG{n+nf}{norm}\PYG{p}{(}\PYG{n}{par}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{)} \PYG{o}{+} \PYG{n}{epsilon}\PYG{p}{))} \PYG{n}{break}
+    \PYG{n}{par} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par1}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{i} \PYG{o}{==} \PYG{n}{maxiter}\PYG{p}{)} \PYG{n+nf}{warning}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Maximal number, \PYGZdq{}}\PYG{p}{,} \PYG{n}{maxiter}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}, of iterations reached\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{par1}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

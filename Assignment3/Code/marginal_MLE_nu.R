@@ -12,13 +12,17 @@ logl <- function(x, nu) {
   }
 }
 
-gradl <- function(x, nu) {
+gradl <- function(x, nu, cb = NULL) {
   n <- length(x)
   force(nu)
-  
+  force(cb)
   function(par) {
     mu <- par[1]
     sigma <- par[2]
+    
+    if(!is.null(cb)) {
+      cb()
+    }
     
     C1 <- (x - mu) / (1 + (x - mu)^2 / (nu * sigma))
     
@@ -59,22 +63,3 @@ hessl <- function(x, nu) {
     hess
   }
 }
-
-nu1 <- 1.5
-X <- extraDistr::rlst(100000, df = nu1, mu = 30, sigma = sqrt(2))
-
-loglike <- logl(X, nu1)
-loggrad <- gradl(X, nu1)
-
-marginal_MLE_nu <- function(x, nu, ...) {
-  loglike <- logl(x, nu)
-  loggrad <- gradl(x, nu)
-  
-  mu0 <- mean(x)
-  sigma0 <- var(x) * nu / (nu + 2)
-  
-  optim(c(mu0, sigma0), loglike, loggrad, ...)
-}
-
-marginal_MLE_nu(X, nu1, method = "BFGS")
-EM_1(c(mean(X), var(X) * nu1 / (nu1 + 2)), X, nu1, maxit = 1000)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.4)  18 OCT 2022 21:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.4)  26 OCT 2022 10:55
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -836,7 +836,7 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/0CB062284AED9750F0199A4BCD1DFC1BF8B74CBDDDE9837BA1F1C5A358E10A48.pygtex)) [8
+ (./_minted-presentation/788B80234CA6F54CA598B3B400D32A6FF8B74CBDDDE9837BA1F1C5A358E10A48.pygtex)) [8
 
 ]
 \openout4 = `presentation.vrb'.
@@ -854,7 +854,7 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
 \openout4 = `presentation.vrb'.
 
  (./presentation.vrb
-<pictures/densities.png, id=314, 624.83438pt x 371.88937pt>
+<pictures/densities.png, id=315, 624.83438pt x 371.88937pt>
 File: pictures/densities.png Graphic file (type png)
 <use pictures/densities.png>
 Package pdftex.def Info: pictures/densities.png  used on input line 6.
@@ -866,6 +866,210 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
 ) [12
 
  <./pictures/densities.png (PNG copy)>]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/73924B3073F20B110DC4AA38A2BFE310F8B74CBDDDE9837BA1F1C5A358E10A48.pygtex)) [13
+
+]
+<pictures/ConvergentRobustness.png, id=368, 624.83438pt x 371.88937pt>
+File: pictures/ConvergentRobustness.png Graphic file (type png)
+<use pictures/ConvergentRobustness.png>
+Package pdftex.def Info: pictures/ConvergentRobustness.png  used on input line 226.
+(pdftex.def)             Requested size: 249.92932pt x 148.75311pt.
+ [14
+
+ <./pictures/ConvergentRobustness.png (PNG copy)>]
+<pictures/IterationsToConvergenceRobustness.png, id=394, 624.83438pt x 371.88937pt>
+File: pictures/IterationsToConvergenceRobustness.png Graphic file (type png)
+<use pictures/IterationsToConvergenceRobustness.png>
+Package pdftex.def Info: pictures/IterationsToConvergenceRobustness.png  used on input line 236.
+(pdftex.def)             Requested size: 249.92932pt x 148.75311pt.
+ [15
+
+ <./pictures/IterationsToConvergenceRobustness.png>]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/0498970D1ED5873043228C6655453670F8B74CBDDDE9837BA1F1C5A358E10A48.pygtex
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+)
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/B0F8D41260EF94766797F0AFC411B204F8B74CBDDDE9837BA1F1C5A358E10A48.pygtex)) [16
+
+]
+<pictures/automatic.png, id=446, 624.83438pt x 371.88937pt>
+File: pictures/automatic.png Graphic file (type png)
+<use pictures/automatic.png>
+Package pdftex.def Info: pictures/automatic.png  used on input line 273.
+(pdftex.def)             Requested size: 249.92932pt x 148.75311pt.
+ [17
+
+ <./pictures/automatic.png>] [18
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/0613D41C2F508422C5672E2EF7BBDD04F8B74CBDDDE9837BA1F1C5A358E10A48.pygtex)) [19
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/42622389BD86015C35210103A2CFAB57F8B74CBDDDE9837BA1F1C5A358E10A48.pygtex)) [20
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/A9A347417844E9707A8DAE1D7164D274F8B74CBDDDE9837BA1F1C5A358E10A48.pygtex)) [21
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/CB00D52AC4B344FE672D7A399CD1DA60F8B74CBDDDE9837BA1F1C5A358E10A48.pygtex
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <6> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+)) [22
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/0F7584E9FC6803EB93BB260D0991D8FBF8B74CBDDDE9837BA1F1C5A358E10A48.pygtex)) [23
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/2D3EAA5CFE8D72C933ED48F47A89441EF8B74CBDDDE9837BA1F1C5A358E10A48.pygtex
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <7> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+)) [24
+
+] [25
+
+]
+<pictures/NewComp/AllMuNu3.png, id=679, 733.99219pt x 362.10281pt>
+File: pictures/NewComp/AllMuNu3.png Graphic file (type png)
+<use pictures/NewComp/AllMuNu3.png>
+Package pdftex.def Info: pictures/NewComp/AllMuNu3.png  used on input line 481.
+(pdftex.def)             Requested size: 293.59167pt x 144.83855pt.
+ [26
+
+ <./pictures/NewComp/AllMuNu3.png (PNG copy)>]
+<pictures/NewComp/AllSigmaNu3.png, id=705, 733.99219pt x 362.10281pt>
+File: pictures/NewComp/AllSigmaNu3.png Graphic file (type png)
+<use pictures/NewComp/AllSigmaNu3.png>
+Package pdftex.def Info: pictures/NewComp/AllSigmaNu3.png  used on input line 489.
+(pdftex.def)             Requested size: 293.59167pt x 144.83855pt.
+ [27
+
+ <./pictures/NewComp/AllSigmaNu3.png (PNG copy)>]
+<pictures/NewComp/AllNormNu3.png, id=731, 733.99219pt x 362.10281pt>
+File: pictures/NewComp/AllNormNu3.png Graphic file (type png)
+<use pictures/NewComp/AllNormNu3.png>
+Package pdftex.def Info: pictures/NewComp/AllNormNu3.png  used on input line 497.
+(pdftex.def)             Requested size: 293.59167pt x 144.83855pt.
+ [28
+
+ <./pictures/NewComp/AllNormNu3.png (PNG copy)>]
+<pictures/NewComp/ChangedParameters.png, id=757, 676.77844pt x 362.10281pt>
+File: pictures/NewComp/ChangedParameters.png Graphic file (type png)
+<use pictures/NewComp/ChangedParameters.png>
+Package pdftex.def Info: pictures/NewComp/ChangedParameters.png  used on input line 506.
+(pdftex.def)             Requested size: 270.70657pt x 144.83855pt.
+ [29
+
+ <./pictures/NewComp/ChangedParameters.png (PNG copy)>] [30
+
+]
+<pictures/NewComp/AllMuNu0_5.png, id=809, 676.77844pt x 362.10281pt>
+File: pictures/NewComp/AllMuNu0_5.png Graphic file (type png)
+<use pictures/NewComp/AllMuNu0_5.png>
+Package pdftex.def Info: pictures/NewComp/AllMuNu0_5.png  used on input line 527.
+(pdftex.def)             Requested size: 270.70657pt x 144.83855pt.
+ [31
+
+ <./pictures/NewComp/AllMuNu0_5.png (PNG copy)>]
+<pictures/NewComp/AllSigmaNu0_5.png, id=836, 676.77844pt x 362.10281pt>
+File: pictures/NewComp/AllSigmaNu0_5.png Graphic file (type png)
+<use pictures/NewComp/AllSigmaNu0_5.png>
+Package pdftex.def Info: pictures/NewComp/AllSigmaNu0_5.png  used on input line 535.
+(pdftex.def)             Requested size: 270.70657pt x 144.83855pt.
+ [32
+
+ <./pictures/NewComp/AllSigmaNu0_5.png (PNG copy)>]
+<pictures/NewComp/AllNormNu0_5.png, id=862, 676.77844pt x 362.10281pt>
+File: pictures/NewComp/AllNormNu0_5.png Graphic file (type png)
+<use pictures/NewComp/AllNormNu0_5.png>
+Package pdftex.def Info: pictures/NewComp/AllNormNu0_5.png  used on input line 543.
+(pdftex.def)             Requested size: 270.70657pt x 144.83855pt.
+ [33
+
+ <./pictures/NewComp/AllNormNu0_5.png (PNG copy)>]
+<pictures/NewComp/AllMuNu0_2.png, id=888, 676.77844pt x 362.10281pt>
+File: pictures/NewComp/AllMuNu0_2.png Graphic file (type png)
+<use pictures/NewComp/AllMuNu0_2.png>
+Package pdftex.def Info: pictures/NewComp/AllMuNu0_2.png  used on input line 552.
+(pdftex.def)             Requested size: 270.70657pt x 144.83855pt.
+ [34
+
+ <./pictures/NewComp/AllMuNu0_2.png (PNG copy)>]
+<pictures/NewComp/AllSigmaNu0_2.png, id=915, 676.77844pt x 362.10281pt>
+File: pictures/NewComp/AllSigmaNu0_2.png Graphic file (type png)
+<use pictures/NewComp/AllSigmaNu0_2.png>
+Package pdftex.def Info: pictures/NewComp/AllSigmaNu0_2.png  used on input line 560.
+(pdftex.def)             Requested size: 270.70657pt x 144.83855pt.
+ [35
+
+ <./pictures/NewComp/AllSigmaNu0_2.png (PNG copy)>]
+<pictures/NewComp/AllNormNu0_2.png, id=941, 676.77844pt x 362.10281pt>
+File: pictures/NewComp/AllNormNu0_2.png Graphic file (type png)
+<use pictures/NewComp/AllNormNu0_2.png>
+Package pdftex.def Info: pictures/NewComp/AllNormNu0_2.png  used on input line 568.
+(pdftex.def)             Requested size: 270.70657pt x 144.83855pt.
+ [36
+
+ <./pictures/NewComp/AllNormNu0_2.png (PNG copy)>]
+<pictures/NewtonProfile.png, id=967, 990.70125pt x 396.48125pt>
+File: pictures/NewtonProfile.png Graphic file (type png)
+<use pictures/NewtonProfile.png>
+Package pdftex.def Info: pictures/NewtonProfile.png  used on input line 576.
+(pdftex.def)             Requested size: 396.27348pt x 158.58968pt.
+ [37
+
+ <./pictures/NewtonProfile.png>]
+<pictures/EMProfile.png, id=996, 986.68625pt x 603.25375pt>
+File: pictures/EMProfile.png Graphic file (type png)
+<use pictures/EMProfile.png>
+Package pdftex.def Info: pictures/EMProfile.png  used on input line 584.
+(pdftex.def)             Requested size: 315.74605pt x 193.04514pt.
+ [38
+
+ <./pictures/EMProfile.png>] [39
+
+]
 \tf@nav=\write8
 \openout8 = `presentation.nav'.
 
@@ -882,18 +1086,18 @@ runsystem(rm presentation.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 24520 strings out of 478287
- 483883 string characters out of 5849289
- 776783 words of memory out of 5000000
- 42159 multiletter control sequences out of 15000+600000
- 484150 words of font info for 82 fonts, out of 8000000 for 9000
+ 24812 strings out of 478287
+ 493591 string characters out of 5849289
+ 780440 words of memory out of 5000000
+ 42337 multiletter control sequences out of 15000+600000
+ 484654 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,14n,122p,472b,565s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on presentation.pdf (12 pages, 237535 bytes).
+ 128i,14n,122p,617b,592s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on presentation.pdf (39 pages, 840577 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
- 361 compressed objects within 4 object streams
- 27 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1148 PDF objects out of 1200 (max. 8388607)
+ 1032 compressed objects within 11 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 123 words of extra memory for PDF output out of 10000 (max. 10000000)
 

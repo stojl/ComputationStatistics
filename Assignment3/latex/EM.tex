@@ -44,9 +44,9 @@ We have the gradients
 \end{align*}
 We have the Hessian for $(\mu,\sigma^2)$
 \begin{align*}
-    &\nabla^{2}_{\mu}\ell = -\frac{\nu + 1}{2n\nu\sigma^2}\sum_{i=1}^{n}\frac{1}{1+\frac{(x_{i}-\mu)^2}{\nu\sigma^2}}+\frac{\nu + 1}{n(\nu\sigma^2)^2}\sum_{i=1}^{n}\left(\frac{x_{i}-\mu}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}\right)^2\\
+    &\nabla^{2}_{\mu}\ell = \frac{\nu + 1}{n\nu\sigma^2}\sum_{i=1}^{n}\frac{1}{1+\frac{(x_{i}-\mu)^2}{\nu\sigma^2}}+2\frac{\nu + 1}{n(\nu\sigma^2)^2}\sum_{i=1}^{n}\left(\frac{x_{i}-\mu}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}\right)^2\\
     &\nabla_{\sigma^2}^{2}\ell = -\frac{1}{2(\sigma^2)^2}+\frac{\nu + 1}{n\nu(\sigma^2)^3}\sum_{i=1}^{n}\frac{(x_{i}-\mu)^2}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}-\frac{\nu + 1}{2n\nu^2(\sigma^2)^4}\sum_{i=1}^{n}\left(\frac{(x_{i}-\mu)^2}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}\right)^2\\
-    &\nabla_{\mu}\nabla_{\sigma^2}\ell = \frac{\nu + 1}{n\nu(\sigma^2)^2}\sum_{i=1}^{n}\frac{x_{i} - \mu}{1 + \frac{(x_{i} - \mu)^2}{\nu\sigma^2}}-\frac{\nu + 1}{n\nu(\sigma^2)^4}\sum_{i=1}^{n}\left(\frac{x_{i}-\mu}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}\right)^{2}(x_{i}-\mu)
+    &\nabla_{\mu}\nabla_{\sigma^2}\ell = \frac{\nu + 1}{n\nu(\sigma^2)^2}\sum_{i=1}^{n}\frac{x_{i} - \mu}{1 + \frac{(x_{i} - \mu)^2}{\nu\sigma^2}}-\frac{\nu + 1}{n\nu(\sigma^2)^3}\sum_{i=1}^{n}\left(\frac{x_{i}-\mu}{1 + \frac{(x_{i}-\mu)^2}{\nu\sigma^2}}\right)^{2}(x_{i}-\mu)
 \end{align*}
 \section{Expectation Maximization}
 Consider $(X, W)$ with joint density

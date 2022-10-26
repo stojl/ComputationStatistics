@@ -1,17 +1,13 @@
 E_step <- function(x, nu) {
-  force(x)
-  force(nu)
   function(par) {
-    # mu = par[1]
-    # sigma^2 = par[2]
-    test <- (nu + 1) / (1 + ((x - par[1])^2) / (nu * par[2]))
+    mu <- par[1]
+    sigma <- par[2]
+    test <- (nu + 1) / (1 + ((x - mu)^2) / (nu * sigma))
     test
   }
 }
 
 M_step <- function(x, nu) {
-  force(x)
-  force(nu)
   function(EW) {
     mu <- sum(EW * x) / sum(EW)
     sigma <- mean(EW * (x - mu)^2) / nu
@@ -19,61 +15,40 @@ M_step <- function(x, nu) {
   }
 }
 
-EM <- function(par, x, nu, maxit = 500, min.eps = 1e-7) {
+EM <- function(par = NULL, x, nu, cb = NULL, maxit = 500, min.eps = 1e-7) {
   E <- E_step(x, nu)
-  M <- M_step(x, nu)
+  M <- M_step(x, nu) 
+  if(is.null(par)) {
+    par <- c(median(x), IQR(x))
+  }
   for(i in 1:maxit) {
     EW <- E(par)
-    new_par <- M(EW)
-    if(sum((new_par - par)^2) < min.eps * (sum(par^2) + min.eps)) {
-      par <- new_par
-      break
-    }
-    par <- new_par
-    if(i == maxit) warning("Maximum number of itertaions reached.")
+    par1 <- M(EW)
+    if(!is.null(cb)) cb()
+    if(norm(par - par1, "2") < min.eps * (norm(par, "2") + min.eps)) break
+    par <- par1
   }
-  names(par) <- c("mu", "sigma")
-  list(par = c(par, nu = nu), iterations = i)
+  if(i == maxit) warning("Maximum number of itertaions ", maxit, " reached.")
+  names(par1) <- c("mu", "sigma")
+  list(par1 = c(par, nu = nu), iterations = i)
 }
 
-EM_2 <- function(par, x, nu, maxit = 500, min.eps = 1e-7) {
-  new_par <- par
+EM2 <- function(par = NULL, x, nu, cb = NULL, maxit = 500, min.eps = 1e-7) {
+  if(is.null(par)) {
+    par <- c(median(x), IQR(x))
+  }
+  par1 <- numeric(2)
+  n <- length(x)
+  EW <- numeric(n)
   for(i in 1:maxit) {
-    w <- (nu + 1) / (1 + ((x - par[1])^2) / (nu * par[2]))
-    new_par[1] <- sum(w * x) / sum(w)
-    new_par[2] <- mean(w * (x - par[1])^2) / nu
-    if(sum((new_par - par)^2) < min.eps * (sum(par^2) + min.eps)) {
-      par <- new_par
-      break
-    }
-    par <- new_par
-    if(i == maxit) warning("Maximum number of itertaions reached.")
+    EW <- (nu + 1) / (1 + ((x - par[1])^2) / (nu * par[2]))
+    par1[1] <- sum(EW * x) / sum(EW)
+    par1[2] <- sum(EW * (x - par[1])^2) / (n * nu)
+    if(!is.null(cb)) cb()
+    if(norm(par - par1, "2") < min.eps * (norm(par, "2") + min.eps)) break
+    par <- par1
   }
-  par
+  if(i == maxit) warning("Maximum number of itertaions ", maxit, " reached.")
+  names(par1) <- c("mu", "sigma")
+  list(par = c(par1, nu = nu), iterations = i)
 }
-
-X <- extraDistr::rlst(100000, df = 6, mu = 5, sigma = sqrt(2))
-
-set.seed(3939392)
-simulate_X <- function(N, mu, sigma, nu) {
-  W <- rchisq(N, nu)
-  X <- rnorm(N, mu, sqrt(nu * sigma / W))
-  
-  list(x = X, w = W)
-}
-
-full_mle <- function(X, W, nu) {
-  stopifnot(length(X) == length(W))
-  mu <- sum(X * W) / sum(W)
-  sigma <- sum(W * (X - mu)^2) / (nu * (length(X)))
-  list(mu = mu, sigma = sigma)
-}
-
-samples <- simulate_X(100000, 5, 1.5, 3)
-full_mle(samples$x, samples$w, 3)
-
-
-EM(c(1,2), samples$x, 3)
-
-
-
