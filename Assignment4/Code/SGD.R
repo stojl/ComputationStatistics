@@ -1,6 +1,6 @@
 SGD <- function(x,
                 y,
-                N,
+                batch = NULL,
                 par0,
                 loss,
                 loss_gr,
@@ -9,25 +9,27 @@ SGD <- function(x,
                 ...,
                 maxit = 15,
                 cb = NULL) {
-  
+  if(length(x) != length(y)) {
+    stop("Length of x: ", length(x), 
+         " is not equal to length of y: ", 
+         length(y), ".")
+  }
   if(is.numeric(gamma0)) {
     if(length(gamma0) == 1) {
-      gamma <- function(x) gamma0
+      gamma <- rep(gamma0, maxit)
     } else {
-      gamma <- function(x) gamma0[1]
-      warning("gamma0 has length > 1. First value is chosen.")
+      gamma <- c(gamma0, rep(gamma0[length(gamma0)], maxit - length(gamma0)))
     }
+  } else if (is.function(gamma0)) {
+    gamma <- gamma0(1:maxit)
+  } else {
+    stop("gamma0 must be a numeric or a function.")
   }
-  
-  par <- par0
-  
   for(i in 1:maxit) {
-    rand_indicies <- sample(seq_along(x), N)
-    x_rand <- x[rand_indicies]
-    y_rand <- y[rand_indicies]
-    par <- epoch(par0, x_rand, y_rand, loss_gr, gamma)
+    xy <- batch(x, y)
+    par <- epoch(par0, xy$x, xy$y, loss_gr, gamma[i])
     if(!is.null(cb)) cb()
     par0 <- par
   }
-  par0
+  par
 }

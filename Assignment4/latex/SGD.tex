@@ -1,0 +1,43 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage[utf8]{inputenc}
+\title{EM algorithm --- Maximum likelihood estimation of the non-standard t-distribution}
+\author{Lucas Støjko Andersen}
+\begin{document}
+\maketitle
+\section{Stochastic Gradient Descent}
+We try to minimize the loss function
+\begin{equation}
+    \ell(\theta)=\frac{1}{N}\sum_{i=1}^{N}(y_{i}-f(x_{i}|\alpha, \beta,\gamma,\rho))^{2}
+\end{equation}
+with
+\begin{equation}
+    f(x|\alpha,\beta,\gamma,\rho)=\gamma + \frac{\rho - \gamma}{1 + e^{\beta\log x -\alpha}}.
+\end{equation}
+\subsection{The Gradient}
+The loss function has the gradient
+\begin{align*}
+    \nabla\ell(\theta) = -\frac{1}{2N}\sum_{i=1}^{N}(y_{i}-f(x_{i}|\alpha,\beta,\gamma,\rho))\nabla f(x_{i}|\alpha,\beta,\gamma,\rho).
+\end{align*}
+We have
+\begin{align*}
+    &\nabla_{\alpha}f = \frac{\rho - \gamma}{\left(1 + e^{\beta\log x - \alpha}\right)^{2}}e^{\beta\log x - \alpha}\\
+    &\nabla_{\beta}f = -\frac{\rho - \gamma}{\left(1 + e^{\beta\log x - \alpha}\right)^{2}}e^{\beta\log x - \alpha}\log x\\
+    &\nabla_{\gamma}f = 1 - \frac{1}{1 + e^{\beta\log x -\alpha}}\\
+    &\nabla_{\rho}f=\frac{1}{1 + e^{\beta\log x -\alpha}}.
+\end{align*}
+\subsection{The Hessian}
+We have the hessian of f
+\begin{align*}
+    &\nabla_{\gamma^{2}}f=0=\nabla_{\rho^{2}}f=\nabla_{\rho\gamma}f\\
+    &\nabla_{\alpha^{2}}f=2\frac{\rho-\gamma}{\left(1+e^{\beta\log x -\alpha}\right)^{3}}\left(e^{\beta\log x - \alpha}\right)^{2}-\frac{\rho -\gamma}{\left(1+e^{\beta\log x - \alpha}\right)^{2}}e^{\beta\log x - \alpha}\\
+    &\nabla_{\beta^{2}}f=2\frac{\rho - \gamma}{(1 + e^{\beta\log x -\alpha})^{3}}\left(\log x\;e^{\beta\log x - \alpha}\right)^{2}-\frac{\rho-\gamma}{\left(1 + e^{\beta\log x - \alpha}\right)^{2}}(\log x)^{2}e^{\beta\log x - \alpha}\\
+    &\nabla_{\alpha\beta}f = -\log x\;\nabla_{\alpha^{2}}f\\
+    &\nabla_{\alpha\rho}f = \frac{1}{\left(1 + e^{\beta\log x -\alpha}\right)^{2}}e^{\beta\log x - \alpha}\\
+    &\nabla_{\alpha\gamma}f = 1 - \nabla_{\alpha\rho}f\\
+    &\nabla_{\beta\rho}f = -\frac{1}{\left(1 + e^{\beta\log x -\alpha}\right)^{2}}\log x\; e^{\beta\log x -\alpha}\\
+    &\nabla_{\beta\gamma}f = 1 - \nabla_{\beta\rho}f
+\end{align*}
+\end{document}
