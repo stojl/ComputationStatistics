@@ -3,9 +3,9 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-NumericVector gradient(NumericVector par,
-                       NumericVector x,
-                       NumericVector y) {
+NumericVector gradient_rcpp(NumericVector par,
+                            NumericVector x,
+                            NumericVector y) {
   
   int N = x.size();
   NumericVector gr(4);
@@ -43,7 +43,7 @@ NumericVector epoch_rcpp(NumericVector par0,
   NumericVector par = clone(par0);
   
   for(int i = 0; i < MAX; ++i, r + minisize) {
-     par = par - gamma * gradient(par, x[r], y[r]);
+     par = par - gamma * gradient_rcpp(par, x[r], y[r]);
   }
 
   return par;

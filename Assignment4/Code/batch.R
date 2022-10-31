@@ -1,60 +1,74 @@
-batch_random <- function(N, ...) {
-  function(x, y) {
-    rand_indicies <- sample(seq_along(x), N, ...)
-    x_rand <- x[rand_indicies]
-    y_rand <- y[rand_indicies]
-    
-    list(x = x_rand, y = y_rand)
-  }
-}
-
-batch_random_chunk <- function(N, shuffle = FALSE) {
-  x_shuffle <- NULL
-  y_shuffle <- NULL
-  max_chunk <- 1
-  force(shuffle)
-  function(x, y) {
-    if(shuffle & is.null(x_shuffle)) {
-      rand_indicies <- sample(seq_along(x))
-      x_shuffle <<- x[rand_indicies]
-      y_shuffle <<- y[rand_indicies]
-      max_chunk <<- max(1, floor(length(x_shuffle) / N) - 1)
+batch_random <- function(batch_size = NULL, replace = TRUE) {
+  if(!is.null(batch_size)) batch_size <- as.integer(batch_size)
+  function(N) {
+    if(is.null(batch_size)) batch_size <<- N
+    if(batch_size > N & replace) {
+      sample(N, replace = TRUE)
     } else {
-      x_shuffle <<- x
-      y_shuffle <<- y
-      max_chunk <<- max(1, floor(length(x_shuffle) / N) - 1)
+      sample(N, batch_size, replace)
     }
-    chunk <- sample(1:max_chunk, 1)
-    x_rand <- x_shuffle[((chunk - 1) * N + 1):(chunk * N)]
-    y_rand <- y_shuffle[((chunk - 1) * N + 1):(chunk * N)]
-    list(x = x_rand, y = y_rand)
   }
 }
 
-batch_linear_chunk <- function(N, shuffle = TRUE) {
+batch_random_chunk <- function(size, 
+                               chunks = 1L, 
+                               replace = TRUE, 
+                               shuffle = FALSE) {
+  shuffle_index <- NULL
+  force(shuffle)
+  function(N) {
+    if(shuffle & is.null(shuffle_index)) {
+      rand_indicies <- sample(N)
+    }
+    max_chunk <- max(1, floor(N / size) - 1)
+    if(is.infinite(chunks)) chunks <- max_chunk
+    if(chunks > max_chunk & replace) {
+      chunk_id <- sample(1:max_chunk, replace = TRUE)
+    } else {
+      chunk_id <- sample(1:max_chunk, chunks, replace)
+    }
+    index <- numeric(chunks * size)
+    if(is.null(shuffle_index)) {
+        for(i in seq_along(chunk_id)) {
+          index[((i - 1) * size + 1):(i * size)] <-
+          ((chunk_id[i] - 1) * size + 1):(chunk_id[i] * size)
+        }
+    } else {
+        for(i in seq_along(chunk_id)) {
+          index[((i - 1) * size + 1):(i * size)] <-
+            shuffle_index[((chunk_id[i] - 1) * size + 1):(chunk_id[i] * size)]
+        }
+    }
+    index
+  }
+}
+
+batch_linear_chunk <- function(size, chunks = 1L, shuffle = FALSE) {
+  chunks <- as.integer(chunks)
   chunk <- 1
-  x_shuffle <- NULL
-  y_shuffle <- NULL
+  shuffle_index <- NULL
   force(shuffle)
-  function(x, y) {
-    if(shuffle & is.null(x_shuffle)) {
-      rand_indicies <- sample(seq_along(x))
-      x_shuffle <<- x[rand_indicies]
-      y_shuffle <<- y[rand_indicies]
-    } else {
-      x_shuffle <<- x
-      y_shuffle <<- y
+  function(N) {
+    if(shuffle & is.null(shuffle_index)) {
+      rand_indicies <- sample(N)
     }
-    max_index <- floor(length(x) / N)
-    if(chunk != max_index) {
-      x_rand <- x_shuffle[((chunk - 1) * N + 1):(chunk * N)]
-      y_rand <- y_shuffle[((chunk - 1) * N + 1):(chunk * N)]
-      chunk <<- chunk + 1
+    max_chunk <- max(1, floor(N / size) - 1)
+    if(chunk + chunks >= max_chunk) chunk <- 1
+    chunk_id <- chunk:(chunk + chunks)
+    index <- numeric(chunks * size)
+    if(is.null(shuffle_index)) {
+      for(i in seq_along(chunk_id)) {
+        index[((i - 1) * size + 1):(i * size)] <-
+          ((chunk_id[i] - 1) * size + 1):(chunk_id[i] * size)
+      }
+      chunk <- chunk + chunks
     } else {
-      chunk <<- 1
-      x_rand <- x_shuffle[((chunk - 1) * N + 1):(chunk * N)]
-      y_rand <- y_shuffle[((chunk - 1) * N + 1):(chunk * N)]
+      for(i in seq_along(chunk_id)) {
+        index[((i - 1) * size + 1):(i * size)] <-
+          shuffle_index[((chunk_id[i] - 1) * size + 1):(chunk_id[i] * size)]
+      }
+      chunk <- chunk + chunks
     }
-    list(x = x_rand, y = y_rand)
+    index
   }
 }

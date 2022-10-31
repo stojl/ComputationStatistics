@@ -1,33 +1,33 @@
-GD <- function(par, 
+GD <- function(par0, 
                H, 
                gr, 
                d = 0.8, 
                c = 0.1, 
                gamma0 = 1, 
                epsilon = 1e-7, 
-               maxiter = 500,
+               maxit = 500,
                backtrack = TRUE,
                cb = NULL
 ) {
-  for(i in 1:maxiter) {
-    if(backtrack) value <- H(par)
-    grad <- gr(par)
+  for(i in 1:maxit) {
+    if(backtrack) value <- H(par0)
+    grad <- gr(par0)
     h_prime <- sum(grad^2)
     gamma <- gamma0
-    par1 <- par - gamma * grad
+    par <- par0 - gamma * grad
     if(!is.null(cb)) cb()
     if(backtrack) {
-      while(H(par1) > value - c * gamma * h_prime) {
+      while(H(par) > value - c * gamma * h_prime) {
         gamma <- d * gamma
-        par1 <- par - gamma * grad
+        par <- par0 - gamma * grad
       }
     }
-    if(norm(par - par1, "2") < epsilon * (norm(par, "2") + epsilon)) {
+    if(norm(par0 - par, "2") < epsilon * (norm(par0, "2") + epsilon)) {
       break
     } 
-    par <- par1
+    par0 <- par
   }
-  if(i == maxiter)
-    warning("Maximal number, ", maxiter, ", of iterations reached")
-  par1
+  if(i == maxit)
+    warning("Maximal number, ", maxit, ", of iterations reached")
+  par
 }
