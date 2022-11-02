@@ -1,0 +1,32 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{SGD\PYGZus{}1} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{,}
+                  \PYG{n}{loss\PYGZus{}gr}\PYG{p}{,}
+                  \PYG{n}{N}\PYG{p}{,}
+                  \PYG{n}{gamma0} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{,}
+                  \PYG{n}{maxit} \PYG{o}{=} \PYG{l+m}{15}\PYG{p}{,}
+                  \PYG{n}{loss} \PYG{o}{=} \PYG{k+kc}{NULL}\PYG{p}{,}
+                  \PYG{n}{cb} \PYG{o}{=} \PYG{k+kc}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{if}\PYG{p}{(}\PYG{n+nf}{is.numeric}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{)} \PYG{o}{==} \PYG{l+m}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{gamma} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{rep}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{,} \PYG{n}{maxit}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}} \PYG{n}{else} \PYG{p}{\PYGZob{}}
+      \PYG{n}{gamma} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{c}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{,} \PYG{n+nf}{rep}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{[}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{)],} \PYG{n}{maxit} \PYG{o}{\PYGZhy{}} \PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{)))}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}} \PYG{n}{else} \PYG{n+nf}{if }\PYG{p}{(}\PYG{n+nf}{is.function}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+    \PYG{n}{gamma} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{gamma0}\PYG{p}{(}\PYG{l+m}{1}\PYG{o}{:}\PYG{n}{maxit}\PYG{p}{)}
+  \PYG{p}{\PYGZcb{}} \PYG{n}{else} \PYG{p}{\PYGZob{}}
+    \PYG{n+nf}{stop}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}gamma0 must be a numeric or a function.\PYGZdq{}}\PYG{p}{)}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n}{par} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par0}
+  \PYG{n+nf}{for}\PYG{p}{(}\PYG{n}{i} \PYG{n}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{n}{maxit}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{index} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{sample}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+    \PYG{n+nf}{for}\PYG{p}{(}\PYG{n}{j} \PYG{n}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{n}{N}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{gr} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{loss\PYGZus{}gr}\PYG{p}{(}\PYG{n}{par}\PYG{p}{,} \PYG{n}{index}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])}
+      \PYG{n}{par} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par} \PYG{o}{\PYGZhy{}} \PYG{n}{gamma}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{*} \PYG{n}{gr}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n+nf}{is.null}\PYG{p}{(}\PYG{n}{cb}\PYG{p}{))} \PYG{n+nf}{cb}\PYG{p}{()}
+    \PYG{n}{par0} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n}{par}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

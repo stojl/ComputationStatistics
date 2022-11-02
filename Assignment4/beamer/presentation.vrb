@@ -1,0 +1,17 @@
+\frametitle{SGD Implementation Using R's C API}
+    Build shared library using \texttt{R CMD SHLIB} command.\\[12pt]
+\begin{minted}{r}
+dyn.load("c/src/sgd_o.o")
+
+epoch_test <- function(mini_batch_size = 1L) {
+  function(par0, index, loss_gr, gamma0) {
+    .Call("epoch_batch",
+          par0,
+          index,
+          loss_gr,
+          gamma0,
+          mini_batch_size,
+          environment())
+  }
+}
+\end{minted}

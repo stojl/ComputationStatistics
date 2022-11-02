@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{stop\PYGZus{}parm} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{epsilon}\PYG{p}{,} \PYG{n}{k}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{epsilon}\PYG{p}{)}
+  \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)}
+  \PYG{n}{n} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+m}{0}
+  \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{,} \PYG{n}{par}\PYG{p}{,} \PYG{n}{loss\PYGZus{}gr}\PYG{p}{,} \PYG{n}{loss}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{n+nf}{norm}\PYG{p}{(}\PYG{n}{par0} \PYG{o}{\PYGZhy{}} \PYG{n}{par}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{)} \PYG{o}{\PYGZlt{}}
+       \PYG{n}{epsilon} \PYG{o}{*} \PYG{p}{(}\PYG{n+nf}{norm}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{)} \PYG{o}{+} \PYG{n}{epsilon}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+      \PYG{n}{n} \PYG{o}{\PYGZlt{}\PYGZlt{}\PYGZhy{}} \PYG{n}{n} \PYG{o}{+} \PYG{l+m}{1}
+    \PYG{p}{\PYGZcb{}} \PYG{n}{else} \PYG{p}{\PYGZob{}}
+      \PYG{n}{n} \PYG{o}{\PYGZlt{}\PYGZlt{}\PYGZhy{}} \PYG{l+m}{0}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{n} \PYG{o}{==} \PYG{n}{k}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

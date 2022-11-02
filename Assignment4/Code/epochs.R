@@ -52,9 +52,9 @@ epoch_batch_rcpp <- function(batch_size, x, y) {
   }
 }
 
-epoch_batch_rcpp_partial <- function(batch_size, x, y) {
+epoch_batch_rcpp_partial <- function(batch_size) {
   function(par0, index, loss_gr, gamma) {
-    epoch_rcpp_partial(par0, x[index], y[index], loss_gr, batch_size, gamma)
+    epoch_rcpp_partial(par0, index ,loss_gr, batch_size, gamma)
   }
 }
 

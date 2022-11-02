@@ -1,11 +1,12 @@
 SGD <- function(par0,
                 loss_gr,
                 N,
-                batch = NULL,
-                epoch = NULL,
+                batch,
+                epoch,
                 gamma0 = 1,
                 maxit = 15,
-                loss,
+                stop_criteria = NULL,
+                loss = NULL,
                 cb = NULL) {
   if(is.numeric(gamma0)) {
     if(length(gamma0) == 1) {
@@ -22,7 +23,13 @@ SGD <- function(par0,
     index <- batch(N)
     par <- epoch(par0, index, loss_gr, gamma[i])
     if(!is.null(cb)) cb()
+    if(!is.null(stop_criteria)) {
+      if(stop_criteria(par, par0, loss_gr, loss)) break
+    }
     par0 <- par
+  }
+  if(!is.null(stop_criteria) & maxit == i) {
+    warning("Maximum number of iterations ", i, " reached.")
   }
   par
 }

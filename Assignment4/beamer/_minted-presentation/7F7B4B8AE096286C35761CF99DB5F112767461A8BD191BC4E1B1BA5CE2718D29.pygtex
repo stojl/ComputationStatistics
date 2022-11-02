@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{dyn.load}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}c/src/sgd\PYGZus{}o.o\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{epoch\PYGZus{}test} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{mini\PYGZus{}batch\PYGZus{}size} \PYG{o}{=} \PYG{l+m}{1L}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{,} \PYG{n}{index}\PYG{p}{,} \PYG{n}{loss\PYGZus{}gr}\PYG{p}{,} \PYG{n}{gamma0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n+nf}{.Call}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}epoch\PYGZus{}batch\PYGZdq{}}\PYG{p}{,}
+          \PYG{n}{par0}\PYG{p}{,}
+          \PYG{n}{index}\PYG{p}{,}
+          \PYG{n}{loss\PYGZus{}gr}\PYG{p}{,}
+          \PYG{n}{gamma0}\PYG{p}{,}
+          \PYG{n}{mini\PYGZus{}batch\PYGZus{}size}\PYG{p}{,}
+          \PYG{n+nf}{environment}\PYG{p}{())}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{batch\PYGZus{}random} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{batch\PYGZus{}size} \PYG{o}{=} \PYG{k+kc}{NULL}\PYG{p}{,} \PYG{n}{replace} \PYG{o}{=} \PYG{k+kc}{FALSE}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n+nf}{is.null}\PYG{p}{(}\PYG{n}{batch\PYGZus{}size}\PYG{p}{))} \PYG{n}{batch\PYGZus{}size} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{as.integer}\PYG{p}{(}\PYG{n}{batch\PYGZus{}size}\PYG{p}{)}
+  \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{n+nf}{is.null}\PYG{p}{(}\PYG{n}{batch\PYGZus{}size}\PYG{p}{))} \PYG{n}{batch\PYGZus{}size} \PYG{o}{\PYGZlt{}\PYGZlt{}\PYGZhy{}} \PYG{n}{N}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{batch\PYGZus{}size} \PYG{o}{\PYGZlt{}=} \PYG{n}{N}\PYG{p}{)} \PYG{n+nf}{return}\PYG{p}{(}\PYG{n+nf}{sample}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{batch\PYGZus{}size}\PYG{p}{,} \PYG{n}{replace} \PYG{o}{=} \PYG{n}{replace}\PYG{p}{))}
+    \PYG{n+nf}{sample}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{batch\PYGZus{}size}\PYG{p}{,} \PYG{n}{replace} \PYG{o}{=} \PYG{k+kc}{TRUE}\PYG{p}{)}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

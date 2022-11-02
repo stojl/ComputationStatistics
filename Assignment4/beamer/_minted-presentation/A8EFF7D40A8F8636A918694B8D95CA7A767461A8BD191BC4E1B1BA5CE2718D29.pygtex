@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{epoch\PYGZus{}batch} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{mini\PYGZus{}batch\PYGZus{}size} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{,} \PYG{n}{index}\PYG{p}{,} \PYG{n}{loss\PYGZus{}gr}\PYG{p}{,} \PYG{n}{gamma}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{mini\PYGZus{}batch\PYGZus{}size} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{min}\PYG{p}{(}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{index}\PYG{p}{),} \PYG{n}{mini\PYGZus{}batch\PYGZus{}size}\PYG{p}{)}
+    \PYG{n}{M} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{floor}\PYG{p}{(}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{index}\PYG{p}{)} \PYG{o}{/} \PYG{n}{mini\PYGZus{}batch\PYGZus{}size}\PYG{p}{)}
+    \PYG{n}{par} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par0}
+    \PYG{n+nf}{for}\PYG{p}{(}\PYG{n}{i} \PYG{n}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{n}{M}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{mini\PYGZus{}batch\PYGZus{}index} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{p}{((}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{l+m}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{mini\PYGZus{}batch\PYGZus{}size} \PYG{o}{+} \PYG{l+m}{1}\PYG{p}{)}\PYG{o}{:}\PYG{p}{(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{mini\PYGZus{}batch\PYGZus{}size}\PYG{p}{)}
+      \PYG{n}{gr} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{loss\PYGZus{}gr}\PYG{p}{(}\PYG{n}{par}\PYG{p}{,} \PYG{n}{index}\PYG{p}{[}\PYG{n}{mini\PYGZus{}batch\PYGZus{}index}\PYG{p}{])}
+      \PYG{n}{par} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par} \PYG{o}{\PYGZhy{}} \PYG{n}{gamma} \PYG{o}{*} \PYG{n}{gr}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{par}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{epoch\PYGZus{}full} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{,} \PYG{n}{index}\PYG{p}{,} \PYG{n}{loss\PYGZus{}gr}\PYG{p}{,} \PYG{n}{gamma}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n+nf}{for}\PYG{p}{(}\PYG{n}{i} \PYG{n}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{index}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+      \PYG{n}{gr} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{loss\PYGZus{}gr}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{,} \PYG{n}{index}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+      \PYG{n}{par0} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par0} \PYG{o}{\PYGZhy{}} \PYG{n}{gamma} \PYG{o}{*} \PYG{n}{gr}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{par0}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

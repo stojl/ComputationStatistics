@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// [[Rcpp::export]]}
+\PYG{n}{NumericVector}\PYG{+w}{ }\PYG{n+nf}{epoch\PYGZus{}rcpp\PYGZus{}partial}\PYG{p}{(}\PYG{n}{NumericVector}\PYG{+w}{ }\PYG{n}{par0}\PYG{p}{,}
+\PYG{+w}{                                 }\PYG{n}{NumericVector}\PYG{+w}{ }\PYG{n}{index}\PYG{p}{,}
+\PYG{+w}{                                 }\PYG{n}{Function}\PYG{+w}{ }\PYG{n}{gr}\PYG{p}{,}
+\PYG{+w}{                                 }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{minisize}\PYG{p}{,}
+\PYG{+w}{                                 }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{gamma}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{index}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{MAX}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{floor}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{minisize}\PYG{p}{);}
+\PYG{+w}{  }\PYG{n}{NumericVector}\PYG{+w}{ }\PYG{n}{par}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{clone}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{n}{Range}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{minisize}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{MAX}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{minisize}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{NumericVector}\PYG{+w}{ }\PYG{n}{gr\PYGZus{}tmp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{gr}\PYG{p}{(}\PYG{n}{par}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{index}\PYG{p}{[}\PYG{n}{r}\PYG{p}{]);}
+\PYG{+w}{    }\PYG{n}{par}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{par}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{gamma}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{gr\PYGZus{}tmp}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{par}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}Rinternals.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}R.h\PYGZgt{}}
+
+\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n+nf}{sgd}\PYG{p}{(}\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{par0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{loss\PYGZus{}gr}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{N}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{batch}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{epoch}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{gamma0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{maxit}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{rho}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n\PYGZus{}maxit}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{asInteger}\PYG{p}{(}\PYG{n}{maxit}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{gam}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{);}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{par}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{allocVector}\PYG{p}{(}\PYG{n}{REALSXP}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{length}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{)));}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{length}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{);}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{i}\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{par}\PYG{p}{)[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{)[}\PYG{n}{i}\PYG{p}{];}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{batch\PYGZus{}call}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{lang2}\PYG{p}{(}\PYG{n}{batch}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{R\PYGZus{}NilValue}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n\PYGZus{}maxit}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{SETCADR}\PYG{p}{(}\PYG{n}{batch\PYGZus{}call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{N}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{index}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{eval}\PYG{p}{(}\PYG{n}{batch\PYGZus{}call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{rho}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{gami}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{ScalarReal}\PYG{p}{(}\PYG{n}{gam}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]));}
+\PYG{+w}{    }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{allocList}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{SET\PYGZus{}TYPEOF}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{LANGSXP}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{SETCAR}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{epoch}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{CDR}\PYG{p}{(}\PYG{n}{t}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{SETCAR}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{par}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{CDR}\PYG{p}{(}\PYG{n}{t}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{SETCAR}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{index}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{CDR}\PYG{p}{(}\PYG{n}{t}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{SETCAR}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{loss\PYGZus{}gr}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{CDR}\PYG{p}{(}\PYG{n}{t}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{SETCAR}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{gami}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{par}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{eval}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{rho}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{UNPROTECT}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{n}{UNPROTECT}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{par}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

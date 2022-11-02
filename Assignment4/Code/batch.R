@@ -1,15 +1,11 @@
-batch_random <- function(batch_size = NULL, replace = TRUE) {
+batch_random <- function(batch_size = NULL, replace = FALSE) {
   if(!is.null(batch_size)) batch_size <- as.integer(batch_size)
   function(N) {
     if(is.null(batch_size)) batch_size <<- N
-    if(batch_size > N & replace) {
-      sample(N, replace = TRUE)
-    } else {
-      sample(N, batch_size, replace)
-    }
+    if(batch_size <= N) return(sample(N, batch_size, replace = replace))
+    sample(N, batch_size, replace = TRUE)
   }
 }
-
 batch_random_chunk <- function(size, 
                                chunks = 1L, 
                                replace = TRUE, 
@@ -17,15 +13,13 @@ batch_random_chunk <- function(size,
   shuffle_index <- NULL
   force(shuffle)
   function(N) {
-    if(shuffle & is.null(shuffle_index)) {
-      rand_indicies <- sample(N)
-    }
+    if(shuffle & is.null(shuffle_index)) rand_indicies <- sample(N)
     max_chunk <- max(1, floor(N / size) - 1)
     if(is.infinite(chunks)) chunks <- max_chunk
-    if(chunks > max_chunk & replace) {
-      chunk_id <- sample(1:max_chunk, replace = TRUE)
+    if(chunks <= max_chunk) {
+      chunk_id <- sample(1:max_chunk, replace = replace)
     } else {
-      chunk_id <- sample(1:max_chunk, chunks, replace)
+      chunk_id <- sample(1:max_chunk, chunks, replace = TRUE)
     }
     index <- numeric(chunks * size)
     if(is.null(shuffle_index)) {

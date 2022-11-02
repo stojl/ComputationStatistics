@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{SGD\PYGZus{}tracer2} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{tracer}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}par\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nf}{SGD}\PYG{p}{(}\PYG{n}{par0} \PYG{o}{=} \PYG{n+nf}{c}\PYG{p}{(}\PYG{l+m}{\PYGZhy{}1}\PYG{p}{,} \PYG{l+m}{6}\PYG{p}{,} \PYG{l+m}{3}\PYG{p}{,} \PYG{l+m}{3}\PYG{p}{),}
+    \PYG{n}{loss\PYGZus{}gr} \PYG{o}{=} \PYG{n+nf}{log\PYGZus{}gradient}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{),}
+    \PYG{n}{N} \PYG{o}{=} \PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{X}\PYG{p}{),}
+    \PYG{n}{batch} \PYG{o}{=} \PYG{n+nf}{batch\PYGZus{}random}\PYG{p}{(),}
+    \PYG{n}{epoch} \PYG{o}{=} \PYG{n+nf}{epoch\PYGZus{}full}\PYG{p}{(),}
+    \PYG{n}{gamma0} \PYG{o}{=} \PYG{n+nf}{decay\PYGZus{}scheduler}\PYG{p}{(}\PYG{n}{gamma0} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{,} \PYG{n}{gamma1} \PYG{o}{=} \PYG{l+m}{0.2}\PYG{p}{,} \PYG{n}{n1} \PYG{o}{=} \PYG{l+m}{200}\PYG{p}{),}
+    \PYG{n}{loss} \PYG{o}{=} \PYG{n+nf}{log\PYGZus{}loss}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{),}
+    \PYG{n}{maxit} \PYG{o}{=} \PYG{l+m}{200}\PYG{p}{,}
+    \PYG{n}{cb} \PYG{o}{=} \PYG{n}{SGD\PYGZus{}tracer2}\PYG{o}{\PYGZdl{}}\PYG{n}{tracer}\PYG{p}{)}
+\end{Verbatim}
