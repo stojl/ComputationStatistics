@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{R\PYGZus{}dens\PYGZus{}for} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{p}\PYG{p}{,} \PYG{n}{kernel}\PYG{p}{,} \PYG{n}{bandwidth}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{m} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{p}\PYG{p}{)}
+  \PYG{n}{n} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+  \PYG{n}{result} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{numeric}\PYG{p}{(}\PYG{n}{m}\PYG{p}{)}
+  \PYG{n+nf}{for}\PYG{p}{(}\PYG{n}{i} \PYG{n}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{n}{m}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n+nf}{for}\PYG{p}{(}\PYG{n}{j} \PYG{n}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{result}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{result}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{n+nf}{kernel}\PYG{p}{((}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{x}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{o}{/} \PYG{n}{bandwidth}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n}{result} \PYG{o}{/} \PYG{p}{(}\PYG{n}{n} \PYG{o}{*} \PYG{n}{bandwidth}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

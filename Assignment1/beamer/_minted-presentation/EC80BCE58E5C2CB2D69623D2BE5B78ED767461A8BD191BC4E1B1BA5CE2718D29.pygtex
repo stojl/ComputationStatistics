@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{c}\PYG{p}{(}\PYG{n+nf}{rnorm}\PYG{p}{(}\PYG{l+m}{200}\PYG{p}{,} \PYG{l+m}{\PYGZhy{}1}\PYG{p}{,} \PYG{l+m}{0.1}\PYG{p}{),}
+       \PYG{n+nf}{rnorm}\PYG{p}{(}\PYG{l+m}{200}\PYG{p}{,} \PYG{l+m}{\PYGZhy{}0.5}\PYG{p}{,} \PYG{l+m}{0.1}\PYG{p}{),}
+       \PYG{n+nf}{rnorm}\PYG{p}{(}\PYG{l+m}{200}\PYG{p}{,} \PYG{l+m}{0}\PYG{p}{,} \PYG{l+m}{0.3}\PYG{p}{),}
+       \PYG{n+nf}{rnorm}\PYG{p}{(}\PYG{l+m}{200}\PYG{p}{,} \PYG{l+m}{0.5}\PYG{p}{,} \PYG{l+m}{0.7}\PYG{p}{),}
+       \PYG{n+nf}{rnorm}\PYG{p}{(}\PYG{l+m}{200}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{))}
+
+\PYG{n}{funky\PYGZus{}density} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{dnorm}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{l+m}{\PYGZhy{}1}\PYG{p}{,} \PYG{l+m}{0.1}\PYG{p}{)} \PYG{o}{/} \PYG{l+m}{5} \PYG{o}{+}
+    \PYG{n+nf}{dnorm}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{l+m}{\PYGZhy{}0.5}\PYG{p}{,} \PYG{l+m}{0.1}\PYG{p}{)} \PYG{o}{/} \PYG{l+m}{5} \PYG{o}{+}
+    \PYG{n+nf}{dnorm}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{l+m}{0}\PYG{p}{,} \PYG{l+m}{0.3}\PYG{p}{)} \PYG{o}{/} \PYG{l+m}{5} \PYG{o}{+}
+    \PYG{n+nf}{dnorm}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{l+m}{0.5}\PYG{p}{,} \PYG{l+m}{0.7}\PYG{p}{)} \PYG{o}{/} \PYG{l+m}{5} \PYG{o}{+}
+    \PYG{n+nf}{dnorm}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{)} \PYG{o}{/} \PYG{l+m}{5}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

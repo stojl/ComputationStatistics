@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{rejection\PYGZus{}sampling} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,}
+                               \PYG{n}{density}\PYG{p}{,}
+                               \PYG{n}{env\PYGZus{}density}\PYG{p}{,}
+                               \PYG{n}{env\PYGZus{}sampler}\PYG{p}{,}
+                               \PYG{n}{alpha}\PYG{p}{,}
+                               \PYG{n}{seed} \PYG{o}{=} \PYG{k+kc}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n+nf}{is.null}\PYG{p}{(}\PYG{n}{seed}\PYG{p}{))} \PYG{n+nf}{set.seed}\PYG{p}{(}\PYG{n}{seed}\PYG{p}{)}
+  \PYG{n}{samples} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{numeric}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
+  \PYG{n}{succes} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{tries} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+m}{0}
+  \PYG{n+nf}{for}\PYG{p}{(}\PYG{n}{s} \PYG{n}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{reject} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kc}{TRUE}
+    \PYG{n+nf}{while}\PYG{p}{(}\PYG{n}{reject}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{tries} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{tries} \PYG{o}{+} \PYG{l+m}{1}
+      \PYG{n}{u0} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{runif}\PYG{p}{(}\PYG{l+m}{1}\PYG{p}{)}
+      \PYG{n}{y0} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{env\PYGZus{}sampler}\PYG{p}{()}
+      \PYG{n}{env\PYGZus{}y0} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{env\PYGZus{}density}\PYG{p}{(}\PYG{n}{y0}\PYG{p}{)}
+      \PYG{n}{dens\PYGZus{}y0} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{density}\PYG{p}{(}\PYG{n}{y0}\PYG{p}{)}
+      \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{u0} \PYG{o}{\PYGZlt{}=} \PYG{n}{alpha} \PYG{o}{*} \PYG{n}{dens\PYGZus{}y0} \PYG{o}{/} \PYG{n}{env\PYGZus{}y0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{reject} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kc}{FALSE}
+        \PYG{n}{samples}\PYG{p}{[}\PYG{n}{s}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{y0}
+        \PYG{n}{succes} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{succes} \PYG{o}{+} \PYG{l+m}{1}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n+nf}{list}\PYG{p}{(}\PYG{n}{samples}\PYG{p}{,} \PYG{p}{(}\PYG{n}{tries} \PYG{o}{\PYGZhy{}} \PYG{n}{succes}\PYG{p}{)} \PYG{o}{/} \PYG{n}{tries}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

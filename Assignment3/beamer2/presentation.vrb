@@ -1,0 +1,44 @@
+\frametitle{Appendix}
+    \framesubtitle{Full \texttt{RcppArmadillo} Implementation of Newton Algorithm}
+\begin{minted}[fontsize = \fontsize{5pt}{5pt}]{cpp}
+// [[Rcpp::export]]
+List FitT(NumericVector par0, NumericVector x, double nu, double c,
+          double d, double gamma0, int maxit, double eps) {
+
+  arma::mat::fixed<2, 2> hess;
+  arma::vec::fixed<2> grad;
+  arma::vec::fixed<2> p1;
+  arma::vec::fixed<2> p2;
+  NumericVector par1(2), par = clone(par0);
+  int n = x.size();
+  int i;
+  for(i = 0; i < maxit; ++i) {
+    double value = CPP_likelihood(par, x, nu);
+    NumericVector gr = CPP_gradient(par, x, nu);
+    NumericMatrix hessian = CPP_hessian(par, x, nu);
+    grad[0] = gr[0], grad[1] = gr[1];
+    hess(0, 0) = hessian(0, 0), hess(0, 1) = hessian(0, 1);
+    hess(1, 0) = hessian(1, 0), hess(1, 1) = hessian(1, 1);
+    arma::vec::fixed<2> rho = -arma::solve(hess, grad);
+    double gamma = gamma0;
+    par1[0] = par[0] + gamma * rho[0];
+    par1[1] = par[0] + gamma * rho[1];
+    double h_prime = rho[0] * gr[0] + rho[1] * gr[1];
+    while(CPP_likelihood(par1, x, nu) > value + c * gamma * h_prime) {
+      gamma *= d;
+      par1[0] = par[0] + gamma * rho[0];
+      par1[1] = par[1] + gamma * rho[1];
+    }
+    p1[0] = par1[0], p1[1] = par1[1];
+    p2[0] = par1[0] - par[0], p2[0] = par1[1] - par[1];
+    double norm = arma::norm(p1, 2);
+    double norm_new = arma::norm(p2, 2);
+    if(norm_new < eps * (norm + eps)) break;
+    par[0] = par1[0], par[1] = par1[1];
+  }
+  if(i != maxit) i -= 1;
+  NumericVector iter(1);
+  iter[0] = i;
+  return List::create(par1, iter);
+}
+\end{minted}

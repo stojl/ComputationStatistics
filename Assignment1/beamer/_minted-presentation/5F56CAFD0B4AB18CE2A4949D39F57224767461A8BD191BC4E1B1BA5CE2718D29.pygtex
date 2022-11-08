@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{e\PYGZus{}kernel} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{l+m}{0.75} \PYG{o}{*} \PYG{p}{(}\PYG{l+m}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{x}\PYG{o}{\PYGZca{}}\PYG{l+m}{2}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n+nf}{abs}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{\PYGZlt{}=} \PYG{l+m}{1}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

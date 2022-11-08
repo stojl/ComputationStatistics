@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}Rinternals.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}R.h\PYGZgt{}}
+
+\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n+nf}{C\PYGZus{}dens}\PYG{p}{(}\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{kernel}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{bw}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{rho}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{length}\PYG{p}{(}\PYG{n}{x}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{m}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{length}\PYG{p}{(}\PYG{n}{p}\PYG{p}{);}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{dens}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{allocVector}\PYG{p}{(}\PYG{n}{REALSXP}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{m}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{tmp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{allocVector}\PYG{p}{(}\PYG{n}{REALSXP}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{K\PYGZus{}Call}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{lang2}\PYG{p}{(}\PYG{n}{kernel}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{R\PYGZus{}NilValue}\PYG{p}{));}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{x\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{x}\PYG{p}{),}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{p\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{p}\PYG{p}{),}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{tmp\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{tmp}\PYG{p}{),}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{dens\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{dens}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{bw\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{bw}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{];}
+
+\PYG{+w}{  }\PYG{n}{memset}\PYG{p}{(}\PYG{n}{dens\PYGZus{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{m}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{m}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{j}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{tmp\PYGZus{}}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{p\PYGZus{}}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x\PYGZus{}}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{bw\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{SETCADR}\PYG{p}{(}\PYG{n}{K\PYGZus{}Call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{tmp}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{result}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{eval}\PYG{p}{(}\PYG{n}{K\PYGZus{}Call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{rho}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{result\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{result}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{j}\PYG{p}{)}
+\PYG{+w}{      }\PYG{n}{dens\PYGZus{}}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{result\PYGZus{}}\PYG{p}{[}\PYG{n}{j}\PYG{p}{];}
+\PYG{+w}{    }\PYG{n}{dens\PYGZus{}}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{/=}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{bw\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{n}{UNPROTECT}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{dens}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

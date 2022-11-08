@@ -1,0 +1,34 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n+nf}{C\PYGZus{}Newton}\PYG{p}{(}\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{par0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{H}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{gr}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{hess}\PYG{p}{,}
+\PYG{+w}{              }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{gamma0}\PYG{p}{,}
+\PYG{+w}{              }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{eps}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{maxit}\PYG{p}{,}
+\PYG{+w}{              }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{env}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{length}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{info}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{H\PYGZus{}call}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{lang2}\PYG{p}{(}\PYG{n}{H}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{R\PYGZus{}NilValue}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{gr\PYGZus{}call}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{lang2}\PYG{p}{(}\PYG{n}{gr}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{R\PYGZus{}NilValue}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{hess\PYGZus{}call}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{lang2}\PYG{p}{(}\PYG{n}{hess}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{R\PYGZus{}NilValue}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{value}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{grad}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{hessian}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Hpar}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{par}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{allocVector}\PYG{p}{(}\PYG{n}{REALSXP}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{));}
+\PYG{+w}{  }\PYG{n}{SEXP}\PYG{+w}{ }\PYG{n}{par1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{allocVector}\PYG{p}{(}\PYG{n}{REALSXP}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{));}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{value\PYGZus{}}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{grad\PYGZus{}}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{hessian\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{par1\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{par1}\PYG{p}{),}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{par\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{par}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{gamma0\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{gamma0}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{d\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{c\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{eps\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{eps}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{maxit\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{INTEGER}\PYG{p}{(}\PYG{n}{maxit}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{  }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{rho}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{double}\PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{i}\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{par}\PYG{p}{)[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{par0}\PYG{p}{)[}\PYG{n}{i}\PYG{p}{];}
+\PYG{+w}{  }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{for}\PYG{p}{(}\PYG{n}{k}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{maxit\PYGZus{}}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{k}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{gamma}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{gamma0\PYGZus{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{h\PYGZus{}prime}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{SETCADR}\PYG{p}{(}\PYG{n}{H\PYGZus{}call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{par}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{eval}\PYG{p}{(}\PYG{n}{H\PYGZus{}call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{env}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{SETCADR}\PYG{p}{(}\PYG{n}{gr\PYGZus{}call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{par}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{grad}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{eval}\PYG{p}{(}\PYG{n}{gr\PYGZus{}call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{env}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{SETCADR}\PYG{p}{(}\PYG{n}{hess\PYGZus{}call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{par}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{hessian}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{PROTECT}\PYG{p}{(}\PYG{n}{eval}\PYG{p}{(}\PYG{n}{hess\PYGZus{}call}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{env}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{hessian\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{hessian}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{grad\PYGZus{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{REAL}\PYG{p}{(}\PYG{n}{grad}\PYG{p}{);}
+\end{Verbatim}

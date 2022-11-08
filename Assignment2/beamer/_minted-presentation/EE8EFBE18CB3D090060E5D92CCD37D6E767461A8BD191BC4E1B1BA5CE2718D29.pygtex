@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{get\PYGZus{}env\PYGZus{}quantile}\PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{z}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{a}\PYG{p}{);} \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{b}\PYG{p}{);} \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{z}\PYG{p}{)}
+  \PYG{n}{az} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{a} \PYG{o}{*} \PYG{n}{z}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{z}\PYG{p}{)]}
+  \PYG{n}{R} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{exp}\PYG{p}{(}\PYG{n}{b}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n+nf}{exp}\PYG{p}{(}\PYG{n}{a} \PYG{o}{*} \PYG{n}{z}\PYG{p}{[}\PYG{l+m}{\PYGZhy{}1}\PYG{p}{])} \PYG{o}{\PYGZhy{}} \PYG{n+nf}{exp}\PYG{p}{(}\PYG{n}{az}\PYG{p}{))} \PYG{o}{/} \PYG{n}{a}
+  \PYG{n}{Q1} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{numeric}\PYG{p}{(}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)} \PYG{o}{+} \PYG{l+m}{1}\PYG{p}{)}
+  \PYG{n}{Q1}\PYG{p}{[}\PYG{l+m}{2}\PYG{o}{:}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{Q1}\PYG{p}{)]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{cumsum}\PYG{p}{(}\PYG{n}{R}\PYG{p}{)}
+  \PYG{n}{c} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{Q1}\PYG{p}{[}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{Q1}\PYG{p}{)]}
+  \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{q}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{ind} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{c} \PYG{o}{*} \PYG{n}{q} \PYG{o}{\PYGZlt{}=} \PYG{n}{Q1}
+    \PYG{n}{maxi} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{which.max}\PYG{p}{(}\PYG{n}{ind}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m}{1}
+    \PYG{n}{y} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{c} \PYG{o}{*} \PYG{n}{q} \PYG{o}{\PYGZhy{}} \PYG{n}{Q1}\PYG{p}{[}\PYG{n}{maxi}\PYG{p}{]}
+    \PYG{n+nf}{log}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{maxi}\PYG{p}{]} \PYG{o}{*} \PYG{n}{y} \PYG{o}{*} \PYG{n+nf}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{p}{[}\PYG{n}{maxi}\PYG{p}{])} \PYG{o}{+} \PYG{n+nf}{exp}\PYG{p}{(}\PYG{n}{az}\PYG{p}{[}\PYG{n}{maxi}\PYG{p}{]))} \PYG{o}{/} \PYG{n}{a}\PYG{p}{[}\PYG{n}{maxi}\PYG{p}{]}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{get\PYGZus{}env\PYGZus{}density} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{z}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{a}\PYG{p}{);} \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{b}\PYG{p}{);} \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{z}\PYG{p}{)}
+  \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}} \PYG{n}{z}\PYG{p}{[}\PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{z}\PYG{p}{)]} \PYG{o}{|} \PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{n}{z}\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{])} \PYG{n+nf}{return}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{)}
+    \PYG{n}{maxi} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{which.max}\PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZlt{}=} \PYG{n}{z}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m}{1}
+    \PYG{n+nf}{exp}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{maxi}\PYG{p}{]} \PYG{o}{*} \PYG{n}{x} \PYG{o}{+} \PYG{n}{b}\PYG{p}{[}\PYG{n}{maxi}\PYG{p}{])}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

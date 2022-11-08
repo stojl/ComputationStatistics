@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{EM\PYGZus{}fisher} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{mle}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{Q} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{Q\PYGZus{}func}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{,} \PYG{n}{mle}\PYG{p}{)}
+  \PYG{n}{phi} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{phi\PYGZus{}func}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)}
+  \PYG{n}{IY} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{numDeriv}\PYG{o}{::}\PYG{n+nf}{hessian}\PYG{p}{(}\PYG{n}{Q}\PYG{p}{,} \PYG{n}{mle}\PYG{p}{)}
+  \PYG{n}{IX} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{p}{(}\PYG{n+nf}{diag}\PYG{p}{(}\PYG{l+m}{1}\PYG{p}{,} \PYG{l+m}{2}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nf}{t}\PYG{p}{(}\PYG{n}{numDeriv}\PYG{o}{::}\PYG{n+nf}{jacobian}\PYG{p}{(}\PYG{n}{phi}\PYG{p}{,} \PYG{n}{mle}\PYG{p}{)))} \PYG{o}{\PYGZpc{}*\PYGZpc{}} \PYG{n}{IY}
+  \PYG{n+nf}{solve}\PYG{p}{(}\PYG{n}{IX}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Q\PYGZus{}func} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{,} \PYG{n}{mle}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);} \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{nu}\PYG{p}{);} \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{par}\PYG{p}{);}
+  \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par}\PYG{p}{)} \PYG{n+nf}{Q\PYGZus{}cpp}\PYG{p}{(}\PYG{n}{par}\PYG{p}{,} \PYG{n}{mle}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{phi\PYGZus{}func} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);} \PYG{n+nf}{force}\PYG{p}{(}\PYG{n}{nu}\PYG{p}{)}
+  \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par}\PYG{p}{)} \PYG{n+nf}{phi\PYGZus{}cpp}\PYG{p}{(}\PYG{n}{par}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{confint.em\PYGZus{}estimate} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{level} \PYG{o}{=} \PYG{l+m}{0.95}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{qq} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{level} \PYG{o}{+} \PYG{p}{(}\PYG{l+m}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{level}\PYG{p}{)} \PYG{o}{/} \PYG{l+m}{2}
+  \PYG{n}{qq} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{qnorm}\PYG{p}{(}\PYG{n}{qq}\PYG{p}{)}
+  \PYG{n}{invf} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{EM\PYGZus{}fisher}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZdl{}}\PYG{n}{par}\PYG{p}{,} \PYG{n}{x}\PYG{o}{\PYGZdl{}}\PYG{n}{x}\PYG{p}{,} \PYG{n}{x}\PYG{o}{\PYGZdl{}}\PYG{n}{nu}\PYG{p}{)}
+  \PYG{n}{mu} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{x}\PYG{o}{\PYGZdl{}}\PYG{n}{par}\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{o}{+} \PYG{n+nf}{c}\PYG{p}{(}\PYG{l+m}{\PYGZhy{}1}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{qq} \PYG{o}{*} \PYG{n+nf}{sqrt}\PYG{p}{(}\PYG{n}{invf}\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{])}
+  \PYG{n}{sigma} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{x}\PYG{o}{\PYGZdl{}}\PYG{n}{par}\PYG{p}{[}\PYG{l+m}{2}\PYG{p}{]} \PYG{o}{+} \PYG{n+nf}{c}\PYG{p}{(}\PYG{l+m}{\PYGZhy{}1}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{qq} \PYG{o}{*} \PYG{n+nf}{sqrt}\PYG{p}{(}\PYG{n}{invf}\PYG{p}{[}\PYG{l+m}{2}\PYG{p}{,} \PYG{l+m}{2}\PYG{p}{])}
+  \PYG{n+nf}{names}\PYG{p}{(}\PYG{n}{mu}\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}lwr\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}upr\PYGZdq{}}\PYG{p}{)}
+  \PYG{n+nf}{names}\PYG{p}{(}\PYG{n}{sigma}\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}lwr\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}upr\PYGZdq{}}\PYG{p}{)}
+  \PYG{n+nf}{list}\PYG{p}{(}\PYG{n}{mu} \PYG{o}{=} \PYG{n}{mu}\PYG{p}{,} \PYG{n}{sigma\PYGZus{}sq} \PYG{o}{=} \PYG{n}{sigma}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

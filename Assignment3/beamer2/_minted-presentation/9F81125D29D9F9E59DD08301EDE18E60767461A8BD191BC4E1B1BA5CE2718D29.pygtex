@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Newton\PYGZus{}C} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{par}\PYG{p}{,} \PYG{n}{H}\PYG{p}{,} \PYG{n}{gr}\PYG{p}{,} \PYG{n}{hess}\PYG{p}{,}
+                     \PYG{n}{d} \PYG{o}{=} \PYG{l+m}{0.8}\PYG{p}{,} \PYG{n}{c} \PYG{o}{=} \PYG{l+m}{0.2}\PYG{p}{,} \PYG{n}{gamma0} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{,}
+                     \PYG{n}{min.eps} \PYG{o}{=} \PYG{l+m}{1e\PYGZhy{}7}\PYG{p}{,} \PYG{n}{maxit} \PYG{o}{=} \PYG{l+m}{500}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{result} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{.Call}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}C\PYGZus{}Newton\PYGZdq{}}\PYG{p}{,}
+                  \PYG{n}{par}\PYG{p}{,}
+                  \PYG{n}{H}\PYG{p}{,}
+                  \PYG{n}{gr}\PYG{p}{,}
+                  \PYG{n}{hess}\PYG{p}{,}
+                  \PYG{n}{d}\PYG{p}{,}
+                  \PYG{n}{c}\PYG{p}{,}
+                  \PYG{n}{gamma0}\PYG{p}{,}
+                  \PYG{n}{min.eps}\PYG{p}{,}
+                  \PYG{n+nf}{as.integer}\PYG{p}{(}\PYG{n}{maxit}\PYG{p}{),}
+                  \PYG{n+nf}{environment}\PYG{p}{())}
+  \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{result}\PYG{p}{[[}\PYG{l+m}{2}\PYG{p}{]]} \PYG{o}{==} \PYG{l+m}{\PYGZhy{}1L}\PYG{p}{)}
+    \PYG{n+nf}{warning}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Matrix solve went wrong.\PYGZdq{}}\PYG{p}{)}
+  \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{result}\PYG{p}{[[}\PYG{l+m}{2}\PYG{p}{]]} \PYG{o}{==} \PYG{n}{maxit}\PYG{p}{)}
+    \PYG{n+nf}{warning}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Maximal number, \PYGZdq{}}\PYG{p}{,} \PYG{n}{maxit}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}, of iterations reached\PYGZdq{}}\PYG{p}{)}
+  \PYG{n+nf}{list}\PYG{p}{(}\PYG{n}{par} \PYG{o}{=} \PYG{n}{result}\PYG{p}{[[}\PYG{l+m}{1}\PYG{p}{]],} \PYG{n}{iterations} \PYG{o}{=} \PYG{n}{result}\PYG{p}{[[}\PYG{l+m}{2}\PYG{p}{]])}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

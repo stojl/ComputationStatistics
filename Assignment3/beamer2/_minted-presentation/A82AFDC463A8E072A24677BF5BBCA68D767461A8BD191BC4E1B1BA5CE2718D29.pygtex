@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{EM} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nu}\PYG{p}{,} \PYG{n}{cb} \PYG{o}{=} \PYG{k+kc}{NULL}\PYG{p}{,} \PYG{n}{maxit} \PYG{o}{=} \PYG{l+m}{500L}\PYG{p}{,} \PYG{n}{min.eps} \PYG{o}{=} \PYG{l+m}{1e\PYGZhy{}7}\PYG{p}{,} \PYG{n}{par} \PYG{o}{=} \PYG{k+kc}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{if}\PYG{p}{(}\PYG{n+nf}{is.null}\PYG{p}{(}\PYG{n}{par}\PYG{p}{))} \PYG{n}{par} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{c}\PYG{p}{(}\PYG{n+nf}{median}\PYG{p}{(}\PYG{n}{x}\PYG{p}{),} \PYG{n+nf}{IQR}\PYG{p}{(}\PYG{n}{x}\PYG{p}{))}
+  \PYG{n}{par1} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{numeric}\PYG{p}{(}\PYG{l+m}{2}\PYG{p}{)}
+  \PYG{n}{n} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{length}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+  \PYG{n}{EW} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{numeric}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
+  \PYG{n+nf}{for}\PYG{p}{(}\PYG{n}{i} \PYG{n}{in} \PYG{l+m}{1}\PYG{o}{:}\PYG{n}{maxit}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{EW} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{p}{(}\PYG{n}{nu} \PYG{o}{+} \PYG{l+m}{1}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{l+m}{1} \PYG{o}{+} \PYG{p}{((}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{par}\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{])}\PYG{o}{\PYGZca{}}\PYG{l+m}{2}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{n}{nu} \PYG{o}{*} \PYG{n}{par}\PYG{p}{[}\PYG{l+m}{2}\PYG{p}{]))}
+    \PYG{n}{par1}\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{n}{EW} \PYG{o}{*} \PYG{n}{x}\PYG{p}{)} \PYG{o}{/} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{n}{EW}\PYG{p}{)}
+    \PYG{n}{par1}\PYG{p}{[}\PYG{l+m}{2}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{n}{EW} \PYG{o}{*} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{par}\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{])}\PYG{o}{\PYGZca{}}\PYG{l+m}{2}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{n}{n} \PYG{o}{*} \PYG{n}{nu}\PYG{p}{)}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n+nf}{is.null}\PYG{p}{(}\PYG{n}{cb}\PYG{p}{))} \PYG{n+nf}{cb}\PYG{p}{()}
+    \PYG{n+nf}{if}\PYG{p}{(}\PYG{n+nf}{norm}\PYG{p}{(}\PYG{n}{par} \PYG{o}{\PYGZhy{}} \PYG{n}{par1}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n}{min.eps} \PYG{o}{*} \PYG{p}{(}\PYG{n+nf}{norm}\PYG{p}{(}\PYG{n}{par1}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{)} \PYG{o}{+} \PYG{n}{min.eps}\PYG{p}{))} \PYG{n}{break}
+    \PYG{n}{par} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{par1}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{i} \PYG{o}{==} \PYG{n}{maxit}\PYG{p}{)} \PYG{n+nf}{warning}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Maximum number of itertaions \PYGZdq{}}\PYG{p}{,} \PYG{n}{maxit}\PYG{p}{,} \PYG{l+s}{\PYGZdq{} reached.\PYGZdq{}}\PYG{p}{)}
+  \PYG{n+nf}{names}\PYG{p}{(}\PYG{n}{par1}\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}mu\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}sigma\PYGZdq{}}\PYG{p}{)}
+  \PYG{n+nf}{list}\PYG{p}{(}\PYG{n}{par} \PYG{o}{=} \PYG{n}{par1}\PYG{p}{,} \PYG{n}{iterations} \PYG{o}{=} \PYG{n}{i}\PYG{p}{,} \PYG{n}{nu} \PYG{o}{=} \PYG{n}{nu}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

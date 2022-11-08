@@ -1,0 +1,63 @@
+Rcpp::sourceCpp("RCPP_SAMP.cpp")
+get_env_quantile_cpp<- function(a, b, z) {
+  force(a); force(b); force(z)
+  az <- a * z[-length(z)]
+  R <- exp(b) * (exp(a * z[-1]) - exp(az)) / a
+  Q1 <- numeric(length(a) + 1)
+  Q1[2:length(Q1)] <- cumsum(R)
+  c <- Q1[length(Q1)]
+  function(q) {
+    RCPP_env_quantile(q, a, b, z, az, Q1)
+  }
+}
+
+get_env_density_cpp <- function(a, b, z) {
+  force(a); force(b); force(z)
+  function(x) {
+    RCPP_env_density(x, a, b, z)
+  }
+}
+
+adap_samp_cpp <- function(n, density, density_deriv, p, zb = c(-Inf, Inf), seed = NULL) {
+  if(!is.null(seed)) set.seed(seed)
+  p <- sort(unique(p))
+  densp <- density(p)
+  a <- density_deriv(p) / densp
+  b <- log(densp) - a * p
+  a_diff <- a[-length(a)] - a[-1]
+  check1 <- a[1] < 0 & zb[1] == -Inf
+  check2 <- a[length(a)] > 0 & zb[2] == Inf
+  if(check1 | check2)
+    stop("Envelope is not integrable. Choose different points.")
+  if(any(a == 0) | any(a_diff == 0))
+    stop("Divison by zero. Choose different points.")
+  z <- c(zb[1], (b[-1] - b[-length(b)]) / a_diff, zb[2])
+  env_density <- get_env_density_cpp(a, b, z)
+  env_quantile <- get_env_quantile_cpp(a, b, z)
+  samples <- numeric(n)
+  u_samples <- runif(2 * n); k_stop <- n; k <- 1
+  succes <- tries <- 0
+  for(s in 1:n) {
+    reject <- TRUE
+    while(reject) {
+      tries <- tries + 1
+      if(k == k_stop) {
+        u_samples <- runif(2 * (n - (s - 1)))
+        k_stop <- n - (s - 1) + 1
+        k <- 1
+      }
+      u0 <- u_samples[2 * (k - 1) + 1]
+      u1 <- u_samples[2 * (k - 1) + 2]
+      k <- k + 1
+      y0 <- env_quantile(u0)
+      env_y0 <- env_density(y0)
+      dens_y0 <- density(y0)
+      if(u1 <= dens_y0 / env_y0) {
+        reject <- FALSE
+        samples[s] <- y0
+        succes <- succes + 1
+      }
+    }
+  }
+  list(samples, (tries - succes) / tries)
+}
