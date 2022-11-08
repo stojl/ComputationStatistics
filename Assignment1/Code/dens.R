@@ -4,9 +4,9 @@ if(!is.loaded("src/dens.o")) {
 
 dens <- function(x,
                  kernel,
-                 bandwidth,
-                 points = 512L,
-                 ...) {
+                 bandwidth = bw_cv,
+                 ...,
+                 points = 512L) {
   if(is.function(bandwidth)) {
     bw <- bandwidth(x, kernel, ...)
   } else {

@@ -1,10 +1,24 @@
-\frametitle{Improving Further Using \texttt{R}'s C API}
-  \framesubtitle{Calling the C Code}
-  Compile to shared library using \texttt{R CMD SHLIB} command. If used in a package a little more work is required. For now just used \texttt{dyn.load} function in \texttt{R} to link the shared library.\\
-
+\frametitle{Final implementation}
 \begin{minted}{r}
-bw_cv <- function(x, kernel, max_bw = 2) {
-  cv_func <- function(l) .Call("C_cv", x, kernel, l, environment())
-  suppressWarnings(optimize(cv_func, c(0, max_bw)))$minimum
+dens <- function(x,
+                 kernel,
+                 bandwidth = bw_cv,
+                 ...,
+                 points = 512L) {
+  if(is.function(bandwidth)) {
+    bw <- bandwidth(x, kernel, ...)
+  } else {
+    bw <- bandwidth
+  }
+  p <- seq(min(x) - bw, max(x) + bw, length.out = points)
+  y <- .Call("C_dens", x, p, kernel, bw, environment())
+  structure(
+    list(
+      x = p,
+      y = y,
+      bw = bw
+    ),
+    class = "dens"
+  )
 }
 \end{minted}

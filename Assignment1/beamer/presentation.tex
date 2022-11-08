@@ -504,4 +504,30 @@ bw_cv <- function(x, kernel, max_bw = 2) {
     \includegraphics[scale = 0.7]{figure/CvsRCPPvsR_cv.png}
   \end{figure}
 \end{frame}
+\begin{frame}[fragile]
+  \frametitle{Final implementation}
+\begin{minted}{r}
+dens <- function(x,
+                 kernel,
+                 bandwidth = bw_cv,
+                 ...,
+                 points = 512L) {
+  if(is.function(bandwidth)) {
+    bw <- bandwidth(x, kernel, ...)
+  } else {
+    bw <- bandwidth
+  }
+  p <- seq(min(x) - bw, max(x) + bw, length.out = points)
+  y <- .Call("C_dens", x, p, kernel, bw, environment())
+  structure(
+    list(
+      x = p,
+      y = y,
+      bw = bw
+    ),
+    class = "dens"
+  )
+}
+\end{minted}
+\end{frame}
 \end{document}

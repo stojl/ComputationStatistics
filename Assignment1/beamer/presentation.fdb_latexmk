@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1667583489 "/home/lucas/Documents/CompStat/git/Assignment1/beamer/presentation.tex" "presentation.pdf" "presentation" 1667583492
+["pdflatex"] 1667927849 "/home/lucas/Documents/CompStat/git/Assignment1/beamer/presentation.tex" "presentation.pdf" "presentation" 1667927851
   "/dev/null" 1666629337 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/etc/texmf/web2c/texmf.cnf" 1664893902 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/lucas/Documents/CompStat/git/Assignment1/beamer/presentation.tex" 1667583489 15143 a7a6ea70c3b285f789b275981dd4ad13 ""
+  "/home/lucas/Documents/CompStat/git/Assignment1/beamer/presentation.tex" 1667927845 15693 e2121068c8e3bbe71c125edf2ed06c92 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -227,6 +227,7 @@
   "_minted-presentation/0475F76287F5C6B74545F6AC26142258767461A8BD191BC4E1B1BA5CE2718D29.pygtex" 1667560159 1226 890afe3cc34d08a8e852c4d93e9d87a2 ""
   "_minted-presentation/08C0D4005A0D12248F4F350080132711767461A8BD191BC4E1B1BA5CE2718D29.pygtex" 1667569985 787 c4c8cc15a564fe74beb8466ab91f96a9 ""
   "_minted-presentation/0EF2667A5DD41BD2827C90EFDA7F8FAAD9BEA1AA884522C6AFF350D6B4FF31DC.pygtex" 1667569690 5760 13e131f9307001c275c20abefb602713 ""
+  "_minted-presentation/1E163B0E4AC03ACD6B155741EED3747F767461A8BD191BC4E1B1BA5CE2718D29.pygtex" 1667927848 1648 afc10121773f1a7801df56630c565df4 ""
   "_minted-presentation/51FB093ED0F47B872BFC695553C5B8B7A27EB6F5D084CDD24502E713CD5A2E4B.pygtex" 1667566497 1354 9bcd5cb6a27e81451f5a448de835e8ad ""
   "_minted-presentation/5F56CAFD0B4AB18CE2A4949D39F57224767461A8BD191BC4E1B1BA5CE2718D29.pygtex" 1667560431 428 5652f9077ce7950390a2389e26fc54c2 ""
   "_minted-presentation/6FF991F0C45C791E87D815ED06C74EE9A27EB6F5D084CDD24502E713CD5A2E4B.pygtex" 1667567035 2968 e728f0c4eeac1d72cf31834a76bb2939 ""
@@ -255,11 +256,11 @@
   "figure/application.png" 1667563817 44990 e2d997e3c37aa2e654baa6c207981e68 ""
   "figure/density_profile.png" 1667508218 32930 8087f4ee399e878e9103ab3bf1cd9cff ""
   "figure/table_R_RCPP_dens.png" 1667567944 15708 2405c96db8c078ddc4f743512ac8bcb7 ""
-  "presentation.aux" 1667583492 6515 653059ad491b6fb4c41e9abfb8ed8096 "pdflatex"
-  "presentation.nav" 1667583492 3341 7d73de7ff642878dd6c36c12ea38837e "pdflatex"
-  "presentation.out" 1667583490 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "presentation.tex" 1667583489 15143 a7a6ea70c3b285f789b275981dd4ad13 ""
-  "presentation.vrb" 1667583492 504 3b995b0ca3fa0783b35ab68c6e19dea0 "pdflatex"
+  "presentation.aux" 1667927851 6719 52c1f342018438d823ee3e4044f6d8d8 "pdflatex"
+  "presentation.nav" 1667927851 3434 e5558aebbdf7ca98c531725246282832 "pdflatex"
+  "presentation.out" 1667927850 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "presentation.tex" 1667927845 15693 e2121068c8e3bbe71c125edf2ed06c92 ""
+  "presentation.vrb" 1667927851 513 f9a4fe648776bd62f822ec5905eac1de "pdflatex"
   (generated)
   "presentation.aux"
   "presentation.log"

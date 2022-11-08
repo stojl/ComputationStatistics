@@ -131,7 +131,7 @@ Newton <- function(par, H, gr, hess,
 \end{frame}
 \begin{frame}
     \frametitle{Comparison}
-    Simulate 10.000 samples from a t-distribution with parameters $\mu = 5$, $\sigma^{2}=3$ and $\nu = 2.5$ and 10.000 samples with $\nu = 0.5$.   
+    Simulate 10.000 samples from a t-distribution with parameters $\mu = 5$, $\sigma^{2}=3$ and $\nu = 2.5$ and 10.000 samples with $\nu = 0.5$. IQR for $\nu = 2.5$ is 2.685394 and $5.211938$ for $\nu = 0.5$. Median is $4.997973$ and $4.98833$ respectively.
     \begin{figure}
         \centering
         \includegraphics[scale = 0.4]{figure/R_NewtonVsEm.png}
@@ -140,6 +140,7 @@ Newton <- function(par, H, gr, hess,
 \begin{frame}
     \frametitle{Comparison}    
     \framesubtitle{Benchmarks Using \texttt{bench} Package}
+    $(4.999499, 2.937087)$ for $\nu = 2.5$ and $(4.996215, 2.913278)$ for $\nu=0.5$ estimated by the EM-algorithm. $(4.999498, 2.937088)$ for $\nu = 2.5$ and $(4.996214, 2.913275)$ for $\nu = 0.5$ estimated by the Newton algorithm.
     \begin{figure}
         \centering
         \includegraphics[scale = 0.6]{figure/R_NewtonVsEm_table.png}

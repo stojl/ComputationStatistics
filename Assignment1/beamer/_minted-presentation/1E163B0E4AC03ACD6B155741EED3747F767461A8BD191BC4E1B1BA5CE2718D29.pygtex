@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{dens} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{function}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}
+                 \PYG{n}{kernel}\PYG{p}{,}
+                 \PYG{n}{bandwidth} \PYG{o}{=} \PYG{n}{bw\PYGZus{}cv}\PYG{p}{,}
+                 \PYG{k+kc}{...}\PYG{p}{,}
+                 \PYG{n}{points} \PYG{o}{=} \PYG{l+m}{512L}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n+nf}{if}\PYG{p}{(}\PYG{n+nf}{is.function}\PYG{p}{(}\PYG{n}{bandwidth}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+    \PYG{n}{bw} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{bandwidth}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{kernel}\PYG{p}{,} \PYG{k+kc}{...}\PYG{p}{)}
+  \PYG{p}{\PYGZcb{}} \PYG{n}{else} \PYG{p}{\PYGZob{}}
+    \PYG{n}{bw} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{bandwidth}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n}{p} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{seq}\PYG{p}{(}\PYG{n+nf}{min}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{bw}\PYG{p}{,} \PYG{n+nf}{max}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{+} \PYG{n}{bw}\PYG{p}{,} \PYG{n}{length.out} \PYG{o}{=} \PYG{n}{points}\PYG{p}{)}
+  \PYG{n}{y} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{.Call}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}C\PYGZus{}dens\PYGZdq{}}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{p}\PYG{p}{,} \PYG{n}{kernel}\PYG{p}{,} \PYG{n}{bw}\PYG{p}{,} \PYG{n+nf}{environment}\PYG{p}{())}
+  \PYG{n+nf}{structure}\PYG{p}{(}
+    \PYG{n+nf}{list}\PYG{p}{(}
+      \PYG{n}{x} \PYG{o}{=} \PYG{n}{p}\PYG{p}{,}
+      \PYG{n}{y} \PYG{o}{=} \PYG{n}{y}\PYG{p}{,}
+      \PYG{n}{bw} \PYG{o}{=} \PYG{n}{bw}
+    \PYG{p}{),}
+    \PYG{n}{class} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}dens\PYGZdq{}}
+  \PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

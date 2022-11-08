@@ -92,7 +92,7 @@ bm0 <- mark(
   min_time = 10
 )
 autoplot(bm0)
-
+bm0
 profvis(adap_samp(100000, 
                   poisdens, 
                   poisdens_derv, 

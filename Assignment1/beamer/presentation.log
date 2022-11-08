@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.4)  4 NOV 2022 18:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.4)  8 NOV 2022 18:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1073,7 +1073,7 @@ Package pdftex.def Info: figure/CVsRcpBandwidth.png  used on input line 498.
  [33
 
  <./figure/CVsRcpBandwidth.png (PNG copy)>]
-<figure/CvsRCPPvsR_cv.png, id=891, 270.00874pt x 165.61874pt>
+<figure/CvsRCPPvsR_cv.png, id=892, 270.00874pt x 165.61874pt>
 File: figure/CvsRCPPvsR_cv.png Graphic file (type png)
 <use figure/CvsRCPPvsR_cv.png>
 Package pdftex.def Info: figure/CvsRCPPvsR_cv.png  used on input line 506.
@@ -1081,6 +1081,14 @@ Package pdftex.def Info: figure/CvsRCPPvsR_cv.png  used on input line 506.
  [34
 
  <./figure/CvsRCPPvsR_cv.png>]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+\openout5 = `presentation.pyg'.
+
+ (./_minted-presentation/1E163B0E4AC03ACD6B155741EED3747F767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [35
+
+]
 \tf@nav=\write8
 \openout8 = `presentation.nav'.
 
@@ -1101,18 +1109,18 @@ runsystem(rm presentation.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 24762 strings out of 478287
- 493465 string characters out of 5849289
- 788406 words of memory out of 5000000
- 42286 multiletter control sequences out of 15000+600000
+ 24774 strings out of 478287
+ 494065 string characters out of 5849289
+ 788515 words of memory out of 5000000
+ 42291 multiletter control sequences out of 15000+600000
  478015 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,122p,665b,589s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (34 pages, 566833 bytes).
+Output written on presentation.pdf (35 pages, 568837 bytes).
 PDF statistics:
- 1007 PDF objects out of 1200 (max. 8388607)
- 899 compressed objects within 9 object streams
- 69 named destinations out of 1000 (max. 500000)
+ 1033 PDF objects out of 1200 (max. 8388607)
+ 923 compressed objects within 10 object streams
+ 71 named destinations out of 1000 (max. 500000)
  118 words of extra memory for PDF output out of 10000 (max. 10000000)
 

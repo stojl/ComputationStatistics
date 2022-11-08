@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1667914175 "/home/lucas/Documents/CompStat/git/Assignment3/beamer2/presentation.tex" "presentation.pdf" "presentation" 1667914179
+["pdflatex"] 1667943823 "/home/lucas/Documents/CompStat/git/Assignment3/beamer2/presentation.tex" "presentation.pdf" "presentation" 1667943826
   "/dev/null" 1666629337 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/etc/texmf/web2c/texmf.cnf" 1664893902 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/lucas/Documents/CompStat/git/Assignment3/beamer2/presentation.tex" 1667914171 20464 5df26400a82e31ea21cef86c684d89be ""
+  "/home/lucas/Documents/CompStat/git/Assignment3/beamer2/presentation.tex" 1667943822 20806 106ceddef7c0e5d81d944736f2f17bdd ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -256,11 +256,11 @@
   "figure/NewtonProfile.png" 1667904740 58591 355e2ae670817d720816efcd43584570 ""
   "figure/R_NewtonVsEm.png" 1667905557 34504 1e7fbc175030e89e92b46200741674af ""
   "figure/R_NewtonVsEm_table.png" 1667905614 17558 0d5a456f1c409dc7bdaf7e2cb03599b3 ""
-  "presentation.aux" 1667914178 5998 1737d1588c2b085390c2c83624ffaf64 "pdflatex"
-  "presentation.nav" 1667914178 2783 f8b0d1eaf383f71e4268670ac899f7e1 "pdflatex"
-  "presentation.out" 1667914176 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "presentation.tex" 1667914171 20464 5df26400a82e31ea21cef86c684d89be ""
-  "presentation.vrb" 1667914178 1596 ae31b6586854e520ab3872555935e0b7 "pdflatex"
+  "presentation.aux" 1667943826 5998 1737d1588c2b085390c2c83624ffaf64 "pdflatex"
+  "presentation.nav" 1667943826 2783 f8b0d1eaf383f71e4268670ac899f7e1 "pdflatex"
+  "presentation.out" 1667943824 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "presentation.tex" 1667943822 20806 106ceddef7c0e5d81d944736f2f17bdd ""
+  "presentation.vrb" 1667943825 1596 ae31b6586854e520ab3872555935e0b7 "pdflatex"
   (generated)
   "presentation.aux"
   "presentation.log"
