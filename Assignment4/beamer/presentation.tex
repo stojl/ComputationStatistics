@@ -169,41 +169,6 @@ batch_random <- function(batch_size = NULL, replace = FALSE) {
 \end{minted}
 \end{frame}
 \begin{frame}[fragile]
-    \frametitle{Another Batch Implementation}
-\begin{minted}[fontsize=\fontsize{7pt}{7pt}]{r}
-batch_random_chunk <- function(size, 
-                               chunks = 1L, 
-                               replace = FALSE, 
-                               shuffle = FALSE) {
-  shuffle_index <- NULL
-  force(shuffle)
-  function(N) {
-    if(shuffle & is.null(shuffle_index)) rand_indicies <- sample(N)
-    max_chunk <- max(1, floor(N / size) - 1)
-    if(is.infinite(chunks)) chunks <- max_chunk
-    if(chunks <= max_chunk) {
-      chunk_id <- sample(1:max_chunk, replace = replace)
-    } else {
-      chunk_id <- sample(1:max_chunk, chunks, replace = TRUE)
-    }
-    index <- numeric(chunks * size)
-    if(is.null(shuffle_index)) {
-        for(i in seq_along(chunk_id)) {
-          index[((i - 1) * size + 1):(i * size)] <-
-          ((chunk_id[i] - 1) * size + 1):(chunk_id[i] * size)
-        }
-    } else {
-        for(i in seq_along(chunk_id)) {
-          index[((i - 1) * size + 1):(i * size)] <-
-            shuffle_index[((chunk_id[i] - 1) * size + 1):(chunk_id[i] * size)]
-        }
-    }
-    index
-  }
-}
-\end{minted}
-\end{frame}
-\begin{frame}[fragile]
     \frametitle{Epoch Implementation}
 \begin{minted}[]{r}
 epoch_batch <- function(mini_batch_size = 1) {

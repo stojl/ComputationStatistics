@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.4)  3 NOV 2022 00:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.4)  9 NOV 2022 11:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -866,7 +866,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/41919E9ACD6A0CF45BD00B3B1060445C767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [11
+ (./_minted-presentation/A8EFF7D40A8F8636A918694B8D95CA7A767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [11
 
 ]
 \openout4 = `presentation.vrb'.
@@ -874,23 +874,15 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/A8EFF7D40A8F8636A918694B8D95CA7A767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [12
+ (./_minted-presentation/D64E357A6E0DD9C49A24D3CFEF1B0467767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [12
 
 ]
-\openout4 = `presentation.vrb'.
-
- (./presentation.vrb
-\openout5 = `presentation.pyg'.
-
- (./_minted-presentation/D64E357A6E0DD9C49A24D3CFEF1B0467767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [13
-
-]
-<figure/ComparisonSGD_1.png, id=363, 615.80063pt x 352.31625pt>
+<figure/ComparisonSGD_1.png, id=336, 615.80063pt x 352.31625pt>
 File: figure/ComparisonSGD_1.png Graphic file (type png)
 <use figure/ComparisonSGD_1.png>
-Package pdftex.def Info: figure/ComparisonSGD_1.png  used on input line 259.
+Package pdftex.def Info: figure/ComparisonSGD_1.png  used on input line 224.
 (pdftex.def)             Requested size: 246.31589pt x 140.924pt.
- [14
+ [13
 
  <./figure/ComparisonSGD_1.png (PNG copy)>]
 \openout4 = `presentation.vrb'.
@@ -898,15 +890,15 @@ Package pdftex.def Info: figure/ComparisonSGD_1.png  used on input line 259.
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/4DA07FFC0A898DE33BB980A4B354286A767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [15
+ (./_minted-presentation/4DA07FFC0A898DE33BB980A4B354286A767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [14
 
 ]
-<figure/BatchVsMini.png, id=414, 615.80063pt x 352.31625pt>
+<figure/BatchVsMini.png, id=389, 615.80063pt x 352.31625pt>
 File: figure/BatchVsMini.png Graphic file (type png)
 <use figure/BatchVsMini.png>
-Package pdftex.def Info: figure/BatchVsMini.png  used on input line 281.
+Package pdftex.def Info: figure/BatchVsMini.png  used on input line 246.
 (pdftex.def)             Requested size: 369.48322pt x 211.39137pt.
- [16
+ [15
 
  <./figure/BatchVsMini.png (PNG copy)>]
 \openout4 = `presentation.vrb'.
@@ -925,7 +917,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <6.5> not available
 LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <6.5> not available
 (Font)              size <6> substituted on input line 9.
 
-)) [17
+)) [16
 
 ]
 \openout4 = `presentation.vrb'.
@@ -933,7 +925,7 @@ LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <6.5> not available
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/258B754FF74EE4CABF8DE0AD830F35F5767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [18
+ (./_minted-presentation/258B754FF74EE4CABF8DE0AD830F35F5767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [17
 
 ]
 \openout4 = `presentation.vrb'.
@@ -941,7 +933,7 @@ LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <6.5> not available
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/9DDD37C098401D43022EC6E6AF7C2204767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [19
+ (./_minted-presentation/9DDD37C098401D43022EC6E6AF7C2204767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [18
 
 ]
 \openout4 = `presentation.vrb'.
@@ -949,15 +941,15 @@ LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <6.5> not available
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/8255D405D50EA25AA03AD538C9A3D95C767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [20
+ (./_minted-presentation/8255D405D50EA25AA03AD538C9A3D95C767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [19
 
 ]
-<figure/GD_Comparison.png, id=542, 615.80063pt x 352.31625pt>
+<figure/GD_Comparison.png, id=517, 615.80063pt x 352.31625pt>
 File: figure/GD_Comparison.png Graphic file (type png)
 <use figure/GD_Comparison.png>
-Package pdftex.def Info: figure/GD_Comparison.png  used on input line 384.
+Package pdftex.def Info: figure/GD_Comparison.png  used on input line 349.
 (pdftex.def)             Requested size: 246.31589pt x 140.924pt.
- [21
+ [20
 
  <./figure/GD_Comparison.png (PNG copy)>]
 \openout4 = `presentation.vrb'.
@@ -965,31 +957,31 @@ Package pdftex.def Info: figure/GD_Comparison.png  used on input line 384.
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/AA9B0E506FD6433B40A2B3A7117B0D82767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [22
+ (./_minted-presentation/AA9B0E506FD6433B40A2B3A7117B0D82767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [21
 
 ]
-<figure/100kComp.png, id=594, 615.80063pt x 352.31625pt>
+<figure/100kComp.png, id=569, 615.80063pt x 352.31625pt>
 File: figure/100kComp.png Graphic file (type png)
 <use figure/100kComp.png>
-Package pdftex.def Info: figure/100kComp.png  used on input line 419.
+Package pdftex.def Info: figure/100kComp.png  used on input line 384.
 (pdftex.def)             Requested size: 307.89955pt x 176.15768pt.
- [23
+ [22
 
  <./figure/100kComp.png (PNG copy)>]
-<figure/SGDProf.png, id=620, 857.2025pt x 288.07625pt>
+<figure/SGDProf.png, id=595, 857.2025pt x 288.07625pt>
 File: figure/SGDProf.png Graphic file (type png)
 <use figure/SGDProf.png>
-Package pdftex.def Info: figure/SGDProf.png  used on input line 426.
+Package pdftex.def Info: figure/SGDProf.png  used on input line 391.
 (pdftex.def)             Requested size: 342.87492pt x 115.22844pt.
- [24
+ [23
 
  <./figure/SGDProf.png>]
-<figure/EpochProf.png, id=649, 857.2025pt x 247.92625pt>
+<figure/EpochProf.png, id=624, 857.2025pt x 247.92625pt>
 File: figure/EpochProf.png Graphic file (type png)
 <use figure/EpochProf.png>
-Package pdftex.def Info: figure/EpochProf.png  used on input line 433.
+Package pdftex.def Info: figure/EpochProf.png  used on input line 398.
 (pdftex.def)             Requested size: 342.87492pt x 99.16873pt.
- [25
+ [24
 
  <./figure/EpochProf.png>]
 \openout4 = `presentation.vrb'.
@@ -997,7 +989,7 @@ Package pdftex.def Info: figure/EpochProf.png  used on input line 433.
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/6C2DE98BA159A63C6B910564880D8FB5A27EB6F5D084CDD24502E713CD5A2E4B.pygtex)) [26
+ (./_minted-presentation/6C2DE98BA159A63C6B910564880D8FB5A27EB6F5D084CDD24502E713CD5A2E4B.pygtex)) [25
 
 ]
 \openout4 = `presentation.vrb'.
@@ -1005,7 +997,7 @@ Package pdftex.def Info: figure/EpochProf.png  used on input line 433.
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/BE482C043889CE6A9BAAB434AB9FFE37A27EB6F5D084CDD24502E713CD5A2E4B.pygtex)) [27
+ (./_minted-presentation/BE482C043889CE6A9BAAB434AB9FFE37A27EB6F5D084CDD24502E713CD5A2E4B.pygtex)) [26
 
 ]
 \openout4 = `presentation.vrb'.
@@ -1013,15 +1005,15 @@ Package pdftex.def Info: figure/EpochProf.png  used on input line 433.
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/F59A6447879B67ED79EACD9F962F98A2A27EB6F5D084CDD24502E713CD5A2E4B.pygtex)) [28
+ (./_minted-presentation/F59A6447879B67ED79EACD9F962F98A2A27EB6F5D084CDD24502E713CD5A2E4B.pygtex)) [27
 
 ]
-<figure/RcppVR.png, id=754, 771.63281pt x 477.28313pt>
+<figure/RcppVR.png, id=729, 771.63281pt x 477.28313pt>
 File: figure/RcppVR.png Graphic file (type png)
 <use figure/RcppVR.png>
-Package pdftex.def Info: figure/RcppVR.png  used on input line 521.
+Package pdftex.def Info: figure/RcppVR.png  used on input line 486.
 (pdftex.def)             Requested size: 308.64764pt x 190.90987pt.
- [29
+ [28
 
  <./figure/RcppVR.png (PNG copy)>]
 \openout4 = `presentation.vrb'.
@@ -1029,7 +1021,7 @@ Package pdftex.def Info: figure/RcppVR.png  used on input line 521.
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/469102A735115AEA1AC7D470D14289E5D9BEA1AA884522C6AFF350D6B4FF31DC.pygtex)) [30
+ (./_minted-presentation/469102A735115AEA1AC7D470D14289E5D9BEA1AA884522C6AFF350D6B4FF31DC.pygtex)) [29
 
 ]
 \openout4 = `presentation.vrb'.
@@ -1037,7 +1029,7 @@ Package pdftex.def Info: figure/RcppVR.png  used on input line 521.
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/FB665309DA04C742F1EC9A635D6165F4D9BEA1AA884522C6AFF350D6B4FF31DC.pygtex)) [31
+ (./_minted-presentation/FB665309DA04C742F1EC9A635D6165F4D9BEA1AA884522C6AFF350D6B4FF31DC.pygtex)) [30
 
 ]
 \openout4 = `presentation.vrb'.
@@ -1045,23 +1037,23 @@ Package pdftex.def Info: figure/RcppVR.png  used on input line 521.
  (./presentation.vrb
 \openout5 = `presentation.pyg'.
 
- (./_minted-presentation/7F7B4B8AE096286C35761CF99DB5F112767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [32
+ (./_minted-presentation/7F7B4B8AE096286C35761CF99DB5F112767461A8BD191BC4E1B1BA5CE2718D29.pygtex)) [31
 
 ]
-<figure/RcppVcVr.png, id=858, 771.63281pt x 477.28313pt>
+<figure/RcppVcVr.png, id=833, 771.63281pt x 477.28313pt>
 File: figure/RcppVcVr.png Graphic file (type png)
 <use figure/RcppVcVr.png>
-Package pdftex.def Info: figure/RcppVcVr.png  used on input line 613.
+Package pdftex.def Info: figure/RcppVcVr.png  used on input line 578.
 (pdftex.def)             Requested size: 308.64764pt x 190.90987pt.
- [33
+ [32
 
  <./figure/RcppVcVr.png (PNG copy)>]
-<figure/table.png, id=883, 311.1625pt x 226.8475pt>
+<figure/table.png, id=858, 311.1625pt x 226.8475pt>
 File: figure/table.png Graphic file (type png)
 <use figure/table.png>
-Package pdftex.def Info: figure/table.png  used on input line 620.
+Package pdftex.def Info: figure/table.png  used on input line 585.
 (pdftex.def)             Requested size: 186.69894pt x 136.10954pt.
- [34
+ [33
 
  <./figure/table.png>]
 \tf@nav=\write8
@@ -1084,18 +1076,18 @@ runsystem(rm presentation.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 24757 strings out of 478287
- 494557 string characters out of 5849289
- 784339 words of memory out of 5000000
- 42272 multiletter control sequences out of 15000+600000
+ 24745 strings out of 478287
+ 493957 string characters out of 5849289
+ 784128 words of memory out of 5000000
+ 42267 multiletter control sequences out of 15000+600000
  477492 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,122p,658b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (34 pages, 677921 bytes).
+Output written on presentation.pdf (33 pages, 675335 bytes).
 PDF statistics:
- 993 PDF objects out of 1000 (max. 8388607)
- 894 compressed objects within 9 object streams
- 69 named destinations out of 1000 (max. 500000)
+ 968 PDF objects out of 1000 (max. 8388607)
+ 870 compressed objects within 9 object streams
+ 67 named destinations out of 1000 (max. 500000)
  98 words of extra memory for PDF output out of 10000 (max. 10000000)
 

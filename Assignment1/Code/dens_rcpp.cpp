@@ -41,7 +41,7 @@ double bw_cv_rcpp_partial(NumericVector x,
       
   }
   for(int s = 0; s < n; ++s)
-    if(K[s] > std::numeric_limits<double>::min()) result += std::log(K[s]);
+    if(K[s] > 0) result += std::log(K[s]);
   return n * log((n - 1) * bandwidth) - result;
 }
 
@@ -71,7 +71,7 @@ double bw_cv_rcpp(NumericVector x,
       K[j] += tmp[j], K[i] += tmp[j];
   }
   for(int s = 0; s < n; ++s)
-    if(K[s] > std::numeric_limits<double>::min()) result += std::log(K[s]);
+    if(K[s] > 0) result += std::log(K[s]);
   return n * std::log((n - 1) * bandwidth) - result;
 }
 

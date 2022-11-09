@@ -12,22 +12,21 @@ bw_oracle <- function(x, kernel) {
 
 bw_cv <- function(x, kernel, max_bw = 2) {
   cv_func <- function(l) .Call("C_cv", x, kernel, l, environment())
-  suppressWarnings(optimize(cv_func, c(0, max_bw)))$minimum
+  optimize(cv_func, c(.Machine$double.eps, max_bw))$minimum
 }
 
 bw_cv_cpp_partial <- function(x, kernel, max_bw = 2) {
   cv_func <- function(l) bw_cv_rcpp_partial(x, kernel, l)
-  suppressWarnings(optimize(cv_func, c(0, max_bw)))$minimum
+  optimize(cv_func, c(.Machine$double.eps, max_bw))$minimum
 }
 
 bw_cv_cpp <- function(x, kernel, max_bw = 2) {
   cv_func <- function(l) bw_cv_rcpp(x, l)
-  suppressWarnings(optimize(cv_func, c(0, max_bw)))$minimum
+  optimize(cv_func, c(.Machine$double.eps, max_bw))$minimum
 }
 
 bw_cv_R <- function(x, kernel, max_bw = 2) {
   cv_func <- function(l) {
-    if(l < .Machine$double.eps) Inf
     n <- length(x)
     K <- numeric(n)
     for(i in 2:n) {
@@ -36,22 +35,21 @@ bw_cv_R <- function(x, kernel, max_bw = 2) {
       K[i] <- K[i] + sum(tmp)
       K[index] <- K[index] + tmp[index]
     }
-    cv <- sum(log(K[K > .Machine$double.eps]))
+    cv <- sum(log(K[K > 0]))
     n * log((n - 1) * l) - cv
   }
-  suppressWarnings(optimize(cv_func, c(0, max_bw)))$minimum
+  optimize(cv_func, c(.Machine$double.eps, max_bw))$minimum
 }
 
 bw_cv_R2 <- function(x, kernel, max_bw = 2) {
   cv_func <- function(l) {
-    if(l < .Machine$double.eps) Inf
     n <- length(x)
     K <- numeric(n)
     for(i in 1:n) {
       K[i] <- sum(kernel((x[i] - x[-i]) / l))
     }
-    cv <- sum(log(K[K > .Machine$double.eps]))
+    cv <- sum(log(K[K > 0]))
     n * log((n - 1) * l) - cv
   }
-  suppressWarnings(optimize(cv_func, c(0, max_bw)))$minimum
+  optimize(cv_func, c(.Machine$double.eps, max_bw))$minimum
 }

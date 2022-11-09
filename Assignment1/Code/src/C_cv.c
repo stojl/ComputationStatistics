@@ -3,7 +3,6 @@
 #include <float.h>
 
 SEXP C_cv(SEXP x, SEXP fn, SEXP lambda, SEXP rho) {
-  if(REAL(lambda)[0] < DBL_EPSILON) return ScalarReal(INFINITY);
   int n = length(x);
   SEXP K = PROTECT(allocVector(REALSXP, n));
   SEXP fn_call = PROTECT(lang2(fn, R_NilValue));

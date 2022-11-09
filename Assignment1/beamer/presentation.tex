@@ -102,16 +102,15 @@ funky_density <- function(x) {
 \begin{minted}{r}
 bw_cv_R2 <- function(x, kernel, max_bw = 2) {
   cv_func <- function(l) {
-    if(l < .Machine$double.eps) Inf
     n <- length(x)
     K <- numeric(n)
     for(i in 1:n) {
       K[i] <- sum(kernel((x[i] - x[-i]) / l))
     }
-    cv <- sum(log(K[K > .Machine$double.eps]))
+    cv <- sum(log(K[K > 0]))
     n * log((n - 1) * l) - cv
   }
-  suppressWarnings(optimize(cv_func, c(0, max_bw)))$minimum
+  optimize(cv_func, c(.Machine$double.eps, max_bw))$minimum
 }
 
 bw_oracle <- function(x, kernel) {
@@ -162,7 +161,7 @@ dens_R1 <- function(x,
   \framesubtitle{Profiling the Kernel Density Estimation}
   \begin{figure}
     \centering
-    \includegraphics[scale = 0.35]{figure/density_profile.png}
+    \includegraphics[scale = 0.5]{figure/density_profile.png}
   \end{figure}
 \end{frame}
 \begin{frame}[fragile]
@@ -170,7 +169,7 @@ dens_R1 <- function(x,
   \framesubtitle{Profiling the Bandwidth Selection}
   \begin{figure}
     \centering
-    \includegraphics[scale = 0.35]{figure/BW_profile.png}
+    \includegraphics[scale = 0.5]{figure/BW_profile.png}
   \end{figure}
 \end{frame}
 \begin{frame}[fragile]
@@ -227,7 +226,6 @@ R_dens_apply <- function(x, p, kernel, bandwidth) {
 \begin{minted}{r}
 bw_cv_R <- function(x, kernel, max_bw = 2) {
   cv_func <- function(l) {
-    if(l < .Machine$double.eps) Inf
     n <- length(x)
     K <- numeric(n)
     for(i in 2:n) {
@@ -236,10 +234,10 @@ bw_cv_R <- function(x, kernel, max_bw = 2) {
       K[i] <- K[i] + sum(tmp)
       K[index] <- K[index] + tmp[index]
     }
-    cv <- sum(log(K[K > .Machine$double.eps]))
+    cv <- sum(log(K[K > 0]))
     n * log((n - 1) * l) - cv
   }
-  suppressWarnings(optimize(cv_func, c(0, max_bw)))$minimum
+  optimize(cv_func, c(.Machine$double.eps, max_bw))$minimum
 }
 \end{minted}
 \end{frame}
@@ -300,7 +298,7 @@ NumericVector dens_rcpp_partial(NumericVector x,
 // [[Rcpp::export]]
 double bw_cv_rcpp_partial(NumericVector x,
                           Function kernel,
-                          double bandwidth) {
+                          double bandwidth) {                          
   int n = x.size();
   NumericVector K(n);
   double result;
@@ -312,7 +310,7 @@ double bw_cv_rcpp_partial(NumericVector x,
       
   }
   for(int s = 0; s < n; ++s)
-    if(K[s] > std::numeric_limits<double>::min()) result += std::log(K[s]);
+    if(K[s] > 0) result += std::log(K[s]);
   return n * log((n - 1) * bandwidth) - result;
 }
 \end{minted} 
@@ -352,7 +350,7 @@ double bw_cv_rcpp(NumericVector x,
       K[j] += tmp[j], K[i] += tmp[j];
   }
   for(int s = 0; s < n; ++s)
-    if(K[s] > std::numeric_limits<double>::min()) result += std::log(K[s]);
+    if(K[s] > 0) result += std::log(K[s]);
   return n * std::log((n - 1) * bandwidth) - result;
 }
 \end{minted}
@@ -430,7 +428,6 @@ SEXP C_dens(SEXP x, SEXP p, SEXP kernel, SEXP bw, SEXP rho) {
 #include <float.h>
 
 SEXP C_cv(SEXP x, SEXP fn, SEXP lambda, SEXP rho) {
-  if(REAL(lambda)[0] < DBL_EPSILON) return ScalarReal(INFINITY);
   int n = length(x);
   SEXP K = PROTECT(allocVector(REALSXP, n));
   SEXP fn_call = PROTECT(lang2(fn, R_NilValue));
@@ -453,7 +450,7 @@ SEXP C_cv(SEXP x, SEXP fn, SEXP lambda, SEXP rho) {
     }
   }
   for(int i = 0; i < n; ++i)
-    if(K_[i] > DBL_EPSILON) *out_ += log(K_[i]);
+    if(K_[i] > 0) *out_ += log(K_[i]);
   *out_ = n * log((n - 1) * h_) - (*out_);
   UNPROTECT(3);
   return out;
@@ -468,7 +465,7 @@ SEXP C_cv(SEXP x, SEXP fn, SEXP lambda, SEXP rho) {
 \begin{minted}{r}
 bw_cv <- function(x, kernel, max_bw = 2) {
   cv_func <- function(l) .Call("C_cv", x, kernel, l, environment())
-  suppressWarnings(optimize(cv_func, c(0, max_bw)))$minimum
+  optimize(cv_func, c(.Machine$double.eps, max_bw))$minimum
 }
 \end{minted}
 \end{frame}

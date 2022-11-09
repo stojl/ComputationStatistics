@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1667430110 "/home/lucas/Documents/CompStat/git/Assignment4/beamer/presentation.tex" "presentation.pdf" "presentation" 1667430112
+["pdflatex"] 1667991066 "/home/lucas/Documents/CompStat/git/Assignment4/beamer/presentation.tex" "presentation.pdf" "presentation" 1667991070
   "/dev/null" 1666629337 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/etc/texmf/web2c/texmf.cnf" 1664893902 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/lucas/Documents/CompStat/git/Assignment4/beamer/presentation.tex" 1667430109 18017 304f68ebe2687da49a92ae1c31716624 ""
+  "/home/lucas/Documents/CompStat/git/Assignment4/beamer/presentation.tex" 1667991062 16858 0ca478e9b0b386f9d8b521592293705a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -223,7 +223,6 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1664894172 2799223 5e13cd5d891f04f2ce19505f26950e08 ""
   "_minted-presentation/258B754FF74EE4CABF8DE0AD830F35F5767461A8BD191BC4E1B1BA5CE2718D29.pygtex" 1667399711 1199 bcea32db83ef97bf238328dafaa74a51 ""
   "_minted-presentation/40A8C476D88779A98BA0753915C37368767461A8BD191BC4E1B1BA5CE2718D29.pygtex" 1667387853 1210 e033b9a68f33a368d55a6c4070d970d3 ""
-  "_minted-presentation/41919E9ACD6A0CF45BD00B3B1060445C767461A8BD191BC4E1B1BA5CE2718D29.pygtex" 1667390966 3746 f71cd58b5b9e5918883f4faab61fc6c1 ""
   "_minted-presentation/469102A735115AEA1AC7D470D14289E5D9BEA1AA884522C6AFF350D6B4FF31DC.pygtex" 1667412416 4896 01d78a8d9ca8c71b8c2974f385bce560 ""
   "_minted-presentation/4DA07FFC0A898DE33BB980A4B354286A767461A8BD191BC4E1B1BA5CE2718D29.pygtex" 1667390662 1222 caeeefb2e2a8963da3c79b0f28ecf837 ""
   "_minted-presentation/50BA40BC779834B8D9C228148A37A806767461A8BD191BC4E1B1BA5CE2718D29.pygtex" 1667383450 2661 6cb5b6bddf2d78b7c444db2ea129bb64 ""
@@ -252,11 +251,11 @@
   "figure/SGDProf.png" 1667409066 39305 6878cadfaf9fedc290c52c47c52af6a3 ""
   "figure/dataplot.png" 1667384817 36664 26fcbe95c3ff5c1e6f9e35bb3383d04f ""
   "figure/table.png" 1667429889 23821 637c2422e84f5d6a4daf5c202602e480 ""
-  "presentation.aux" 1667430112 6815 1aaa0dad5605769e6e8bd5ed95a0a069 "pdflatex"
-  "presentation.nav" 1667430112 3341 7d73de7ff642878dd6c36c12ea38837e "pdflatex"
-  "presentation.out" 1667430110 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "presentation.tex" 1667430109 18017 304f68ebe2687da49a92ae1c31716624 ""
-  "presentation.vrb" 1667430112 418 6fa9c3b2b249752db46d100a02a8bda5 "pdflatex"
+  "presentation.aux" 1667991069 6611 e43f67fb029dc7bd8b59821554d75cba "pdflatex"
+  "presentation.nav" 1667991069 3248 04f88683e470406fc21eb9e1acb56761 "pdflatex"
+  "presentation.out" 1667991067 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "presentation.tex" 1667991062 16858 0ca478e9b0b386f9d8b521592293705a ""
+  "presentation.vrb" 1667991069 418 6fa9c3b2b249752db46d100a02a8bda5 "pdflatex"
   (generated)
   "presentation.aux"
   "presentation.log"
